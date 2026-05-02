@@ -26,6 +26,56 @@ collections:
           - { label: "Cultura", value: "cultura" }
           - { label: "Liderazgo", value: "liderazgo" }
           - { label: "Propósito", value: "proposito" }
+      - { label: "Extracto", name: "extracto", widget: "text" }
+      - { label: "Imagen de portada (opcional)", name: "imagen", widget: "image", required: false }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+      - { label: "Publicado", name: "publicado", widget: "boolean", default: true }
+
+  # ── SLIDES DEL HERO ─────────────────────────────
+  - name: "hero_slides"
+    label: "Slides del Hero"
+    folder: "_slides"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Subtítulo", name: "subtitulo", widget: "text" }
+      - label: "Tipo de fondo"
+        name: "tipo"
+        widget: "select"
+        options:
+          - { label: "Azul Oreka", value: "azul" }
+          - { label: "Oscuro", value: "oscuro" }
+          - { label: "Tierra", value: "tierra" }
+          - { label: "Foto", value: "foto" }
+      - { label: "Badge (ej. Nuevo)", name: "badge", widget: "string", required: false }
+      - { label: "Activo", name: "activo", widget: "boolean", default: true }
+
+
+media_folder: "imagenes"
+public_folder: "/imagenes"
+
+locale: "es"
+
+collections:
+
+  # ── REFLEXIONES (Blog) ──────────────────────────
+  - name: "reflexiones"
+    label: "Reflexiones"
+    folder: "_reflexiones"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - label: "Categoría"
+        name: "categoria"
+        widget: "select"
+        options:
+          - { label: "Estrategia", value: "estrategia" }
+          - { label: "Cultura", value: "cultura" }
+          - { label: "Liderazgo", value: "liderazgo" }
+          - { label: "Propósito", value: "proposito" }
       - { label: "Extracto", name: "extracto", widget: "text", hint: "2-3 líneas para la lista de reflexiones" }
       - { label: "Imagen de portada (opcional)", name: "imagen", widget: "image", required: false }
       - { label: "Contenido", name: "body", widget: "markdown" }
