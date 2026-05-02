@@ -1205,5 +1205,19 @@ const gridObs = new IntersectionObserver((entries) => {
 document.querySelectorAll('.tensiones-grid, .pasos-grid, .nucleo-grid').forEach(el => gridObs.observe(el));
 </script>
 
+<!-- Netlify Identity — necesario para confirmar invitaciones al CMS -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/";
+      });
+    }
+  });
+}
+</script>
+
 </body>
 </html>
