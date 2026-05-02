@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiero este libro — El Núcleo Estratégico · Oreka</title>
+<meta name="description" content="Manifiesta tu interés en El Núcleo Estratégico de Juan Bernardo Puentes. Te contactamos con disponibilidad y detalles.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --azul:#1F4E79;
+  --azul-desc:#3B82C4;
+  --niebla:#EBF3FB;
+  --tierra:#A0714F;
+  --gris:#6B7280;
+  --negro:#1A1A1A;
+  --blanco:#FFFFFF;
+  --fondo:#FDFAF7;
+  --borde:rgba(0,0,0,0.08);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost',Arial,sans-serif;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--fondo);color:var(--negro);line-height:1.7;font-weight:300}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,250,247,0.96);backdrop-filter:blur(8px);border-bottom:.5px solid var(--borde);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-logo{display:flex;align-items:center}
+.nav-logo-img{height:46px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);transition:color .2s}
+.nav-links a:hover{color:var(--azul)}
+.nav-links a.active{color:var(--azul)}
+.nav-cta{color:var(--azul) !important;border:.5px solid var(--azul);padding:5px 14px;border-radius:3px;transition:all .2s !important}
+.nav-cta:hover{background:var(--azul);color:var(--blanco) !important}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:20px;height:1px;background:var(--negro)}
+.progress-bar{position:fixed;top:52px;left:0;z-index:99;height:2px;background:var(--azul-desc);width:0%;transition:width .1s linear;opacity:.8}
+
+/* HERO SPLIT */
+.libro-hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 480px;
+  padding-top:52px;
+}
+
+/* LADO IZQUIERDO — contenido */
+.libro-left{
+  background:var(--tierra);
+  padding:72px 72px 72px 96px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.libro-left::before{content:'';position:absolute;left:48px;top:0;bottom:0;width:1.5px;background:rgba(255,255,255,.08)}
+.libro-back{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:40px;transition:color .2s;align-self:flex-start}
+.libro-back:hover{color:rgba(255,255,255,.7)}
+.libro-back::before{content:'←';font-size:12px}
+.libro-tag{font-size:9px;font-weight:500;color:rgba(255,255,255,.25);letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
+.libro-title{font-family:var(--serif);font-size:clamp(32px,3.5vw,48px);font-weight:400;color:var(--blanco);line-height:1.1;margin-bottom:12px}
+.libro-title em{font-style:italic;color:rgba(255,255,255,.55)}
+.libro-sep{display:flex;align-items:center;width:80px;margin-bottom:20px}
+.libro-sep-line{flex:1;height:.5px;background:rgba(255,255,255,.15)}
+.libro-sep-dot{width:4px;height:4px;border-radius:50%;background:var(--tierra);margin:0 8px;flex-shrink:0}
+.libro-desc{font-size:14px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.85;margin-bottom:36px;max-width:460px}
+
+/* Fragmentos del libro */
+.libro-fragmentos{display:flex;flex-direction:column;gap:0}
+.libro-frag{
+  padding:14px 0;
+  border-bottom:.5px solid rgba(255,255,255,.08);
+  display:flex;align-items:baseline;gap:12px;
+}
+.libro-frag:first-child{border-top:.5px solid rgba(255,255,255,.08)}
+.libro-frag-text{
+  font-family:var(--serif);font-size:15px;font-style:italic;
+  color:rgba(255,255,255,.55);line-height:1.5;
+}
+.libro-frag-ref{font-size:10px;color:rgba(255,255,255,.2);letter-spacing:.06em;flex-shrink:0}
+
+/* LADO DERECHO — formulario */
+.libro-right{
+  background:var(--fondo);
+  padding:72px 64px 72px 56px;
+  display:flex;flex-direction:column;justify-content:center;
+  border-left:.5px solid var(--borde);
+}
+.form-section-label{font-size:9px;font-weight:500;color:var(--gris);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px;padding-bottom:10px;border-bottom:.5px solid var(--borde)}
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.form-label{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gris)}
+.form-input{
+  background:var(--blanco);
+  border:.5px solid var(--borde);
+  border-radius:4px;
+  padding:12px 16px;
+  font-family:var(--sans);font-size:14px;font-weight:300;
+  color:var(--negro);outline:none;
+  transition:border-color .2s,box-shadow .2s;width:100%;
+}
+.form-input::placeholder{color:var(--gris);opacity:.45}
+.form-input:focus{border-color:var(--azul-desc);box-shadow:0 0 0 3px rgba(59,130,196,.08)}
+.form-textarea{min-height:100px;resize:vertical;line-height:1.65}
+
+/* Cómo te enteraste */
+.form-como{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.como-opt{
+  border:.5px solid var(--borde);border-radius:4px;
+  padding:9px 12px;font-size:12px;color:var(--gris);
+  background:var(--blanco);cursor:pointer;
+  transition:all .2s;text-align:center;
+  user-select:none;
+}
+.como-opt:hover{border-color:var(--azul-desc);color:var(--azul)}
+.como-opt.selected{border-color:var(--azul);color:var(--azul);background:var(--niebla)}
+
+/* Botón enviar */
+.btn-enviar{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--azul);color:var(--blanco);
+  border:none;border-radius:4px;
+  padding:14px 28px;width:100%;
+  font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s;margin-top:8px;
+}
+.btn-enviar::after{content:'→';display:inline-block;transition:transform .3s ease}
+.btn-enviar:hover{background:#163a5e;transform:translateY(-1px);box-shadow:0 6px 20px rgba(31,78,121,.25)}
+.btn-enviar:hover::after{transform:translateX(5px)}
+.form-note{font-size:11px;color:var(--gris);opacity:.55;text-align:center;margin-top:10px}
+
+/* ESTADO DE ÉXITO */
+.form-success{
+  display:none;
+  text-align:center;
+  padding:48px 24px;
+}
+.form-success.visible{display:block}
+.form-success-icon{font-size:32px;margin-bottom:16px}
+.form-success-title{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--negro);margin-bottom:8px}
+.form-success-sub{font-size:14px;font-weight:300;color:var(--gris);line-height:1.75}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{padding:0 24px}
+  .libro-hero{grid-template-columns:1fr;min-height:auto}
+  .libro-left{padding:100px 48px 56px}
+  .libro-left::before{left:24px}
+  .libro-right{padding:48px 48px 64px;border-left:none;border-top:.5px solid var(--borde)}
+}
+@media(max-width:640px){
+  .nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:52px;left:0;right:0;background:rgba(253,250,247,.98);border-bottom:.5px solid var(--borde);padding:20px 24px;gap:16px}
+  .nav-burger{display:flex}
+  .libro-left{padding:80px 24px 48px;padding-left:52px}
+  .libro-right{padding:40px 20px 56px}
+  .form-como{grid-template-columns:1fr}
+}
+
+/* FOOTER */
+.footer{background:var(--negro);padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-logo{display:flex;flex-direction:column;gap:6px}
+.footer-logo-img{height:56px;width:auto;opacity:.9}
+.footer-logo span{font-family:var(--sans);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.75)}
+.footer-meta{font-size:9px;color:rgba(255,255,255,.18);letter-spacing:.06em}
+@media(max-width:640px){.footer{padding:32px 24px;flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.svg" alt="Oreka Consultores" class="nav-logo-img">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html" class="active">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html" class="nav-cta">Hablemos →</a></li>
+  </ul>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- HERO SPLIT -->
+<section class="libro-hero">
+
+  <!-- IZQUIERDA -->
+  <div class="libro-left">
+    <a href="libro.html" class="libro-back">Volver al libro</a>
+
+    <div class="libro-tag">El Núcleo Estratégico</div>
+    <h1 class="libro-title">
+      Una manera diferente<br>de mirar<br><em>las organizaciones.</em>
+    </h1>
+    <div class="libro-sep">
+      <div class="libro-sep-line"></div>
+      <div class="libro-sep-dot"></div>
+      <div class="libro-sep-line"></div>
+    </div>
+    <p class="libro-desc">Por Juan Bernardo Puentes Jiménez. Para quien quiere construir algo genuino, trabajar en algo que valga la pena, o simplemente entender el mundo económico con más claridad y menos ilusión.</p>
+
+    <div class="libro-fragmentos">
+      <div class="libro-frag">
+        <div class="libro-frag-text">"El propósito genuino no necesita ser construido. Ya estaba operando antes de que existiera como frase."</div>
+        <div class="libro-frag-ref">I</div>
+      </div>
+      <div class="libro-frag">
+        <div class="libro-frag-text">"La cultura no vive en los valores enmarcados en la pared. Vive en las decisiones que se toman cuando nadie supervisa."</div>
+        <div class="libro-frag-ref">II</div>
+      </div>
+      <div class="libro-frag">
+        <div class="libro-frag-text">"La marca no se construye con comunicación. Se construye con coherencia."</div>
+        <div class="libro-frag-ref">IV</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DERECHA — FORMULARIO -->
+  <div class="libro-right">
+
+    <div id="formWrap">
+      <div class="form-section-label">Manifiesta tu interés</div>
+
+      <form id="libroForm" action="https://formspree.io/f/xxxxxxxx" method="POST">
+
+        <div class="form-field">
+          <label class="form-label">Tu nombre</label>
+          <input class="form-input" type="text" name="nombre" placeholder="¿Cómo te llamamos?" required>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">Tu correo</label>
+          <input class="form-input" type="email" name="correo" placeholder="Para enviarte la información" required>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">¿Cuántos ejemplares te interesan?</label>
+          <input class="form-input" type="text" name="ejemplares" placeholder="1, 5, para mi equipo...">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">¿Cómo llegaste al libro?</label>
+          <div class="form-como" id="comoGrid">
+            <div class="como-opt" onclick="selectComo(this)">LinkedIn</div>
+            <div class="como-opt" onclick="selectComo(this)">Recomendación</div>
+            <div class="como-opt" onclick="selectComo(this)">Instagram</div>
+            <div class="como-opt" onclick="selectComo(this)">Otro</div>
+          </div>
+          <input type="hidden" name="como" id="comoValue">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">¿Algo que quieras comentar? (opcional)</label>
+          <textarea class="form-input form-textarea" name="comentario" placeholder="Contexto de tu iniciativa, uso que le darías al libro..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar interés</button>
+        <p class="form-note">Te respondemos en menos de 48 horas con disponibilidad y detalles.</p>
+
+      </form>
+    </div>
+
+    <!-- ÉXITO -->
+    <div class="form-success" id="formSuccess">
+      <div class="form-success-icon">✦</div>
+      <div class="form-success-title">Recibimos tu interés.</div>
+      <p class="form-success-sub">Juan Bernardo te escribirá en las próximas 48 horas con toda la información sobre disponibilidad y cómo obtener el libro.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="logo-blanco.svg" alt="Oreka Consultores" class="footer-logo-img">
+    <div style="display:flex;gap:16px;margin-top:6px;">
+      <a href="https://www.linkedin.com/in/juan-bernardo-puentes-jim%C3%A9nez-9a87a77b/" target="_blank" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-family:var(--sans);transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.3)'">LinkedIn</a>
+      <a href="https://wa.me/573152130878" target="_blank" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-family:var(--sans);transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.3)'">WhatsApp</a>
+      <a href="mailto:juanp@orekaconsultores.com" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-family:var(--sans);transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Correo</a>
+    </div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="footer-meta">© 2025 Oreka Consultores</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  const pct = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+
+function selectComo(el){
+  document.querySelectorAll('.como-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('comoValue').value = el.textContent;
+}
+
+// Envío con estado de éxito
+document.getElementById('libroForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  // Si usas Formspree, cambia esto por fetch real
+  // Por ahora muestra el estado de éxito directamente
+  document.getElementById('formWrap').style.display = 'none';
+  document.getElementById('formSuccess').classList.add('visible');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+
+</body>
+</html>

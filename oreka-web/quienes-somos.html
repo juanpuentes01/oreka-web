@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiénes Somos — Oreka Consultores</title>
+<meta name="description" content="Oreka nace de una convicción: la mayoría de los problemas visibles no nacen donde creemos. Conoce la historia, los principios y el fundador.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --azul:#1F4E79;
+  --azul-desc:#3B82C4;
+  --niebla:#EBF3FB;
+  --tierra:#A0714F;
+  --gris:#6B7280;
+  --negro:#1A1A1A;
+  --blanco:#FFFFFF;
+  --fondo:#FDFAF7;
+  --borde:rgba(0,0,0,0.08);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost',Arial,sans-serif;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--fondo);color:var(--negro);line-height:1.7;font-weight:300}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,250,247,0.96);backdrop-filter:blur(8px);border-bottom:.5px solid var(--borde);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-logo{display:flex;align-items:center}
+.nav-logo-img{height:46px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);transition:color .2s}
+.nav-links a:hover{color:var(--azul)}
+.nav-links a.active{color:var(--azul)}
+.nav-cta{color:var(--azul) !important;border:.5px solid var(--azul);padding:5px 14px;border-radius:3px;transition:all .2s !important}
+.nav-cta:hover{background:var(--azul);color:var(--blanco) !important}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:20px;height:1px;background:var(--negro)}
+
+/* PROGRESS */
+.progress-bar{position:fixed;top:52px;left:0;z-index:99;height:2px;background:var(--azul-desc);width:0%;transition:width .1s linear;opacity:.8}
+
+/* PAGE HEADER — negro, sin vesica */
+.page-header{background:var(--negro);padding:120px 96px 72px;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;left:48px;top:72px;bottom:40px;width:1.5px;background:rgba(255,255,255,.08)}
+.page-header-label{font-size:9px;font-weight:500;color:rgba(255,255,255,.25);letter-spacing:.22em;text-transform:uppercase;margin-bottom:20px}
+.page-header-title{font-family:var(--serif);font-size:clamp(36px,4vw,54px);font-weight:400;color:var(--blanco);line-height:1.08;max-width:700px;margin-bottom:16px}
+.page-header-title em{font-style:italic;color:rgba(255,255,255,.45)}
+.page-header-sep{display:flex;align-items:center;width:80px;margin-bottom:20px}
+.page-header-sep-line{flex:1;height:.5px;background:rgba(255,255,255,.15)}
+.page-header-sep-dot{width:4px;height:4px;border-radius:50%;background:var(--tierra);margin:0 8px;flex-shrink:0}
+.page-header-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.3);max-width:520px;line-height:1.85}
+
+/* LAYOUT */
+.main{max-width:1100px;margin:0 auto;padding:80px 48px}
+.main--narrow{max-width:1100px;margin:0 auto;padding:80px 48px}
+.section{margin-bottom:72px}
+.sep{display:flex;align-items:center;margin:48px 0}
+.sep-line{flex:1;height:.5px;background:var(--borde);transform:scaleX(0);transform-origin:left;transition:transform .8s ease}
+.sep.visible .sep-line{transform:scaleX(1)}
+.sep-dot{width:5px;height:5px;border-radius:50%;background:var(--azul);margin:0 10px;flex-shrink:0;opacity:0;transition:opacity .3s ease .7s}
+.sep.visible .sep-dot{opacity:1}
+.slabel{font-size:9px;font-weight:500;color:var(--gris);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:.5px solid var(--borde)}
+p{font-size:14px;font-weight:300;color:var(--gris);line-height:1.85;max-width:none;margin-bottom:16px}
+p strong{color:var(--negro);font-weight:500}
+.chapter-label{font-size:9px;font-weight:500;color:var(--azul-desc);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;padding-bottom:8px;border-bottom:.5px solid var(--borde)}
+.chapter-title{font-family:var(--serif);font-size:clamp(28px,3vw,38px);font-weight:400;color:var(--negro);line-height:1.1;margin-bottom:12px}
+.chapter-title em{font-style:italic}
+
+/* PULLQUOTE */
+.pullquote{border-left:2px solid var(--azul);padding:4px 0 4px 20px;margin:28px 0}
+.pullquote-text{font-family:var(--serif);font-size:22px;font-style:italic;font-weight:400;color:var(--azul);line-height:1.5;margin:0;max-width:600px}
+.pullquote-source{font-size:11px;font-weight:400;color:var(--gris);letter-spacing:.06em;margin-top:8px}
+
+/* NÚCLEO QS — Propósito, PdV, Posicionamiento, Negación */
+.nucleo-qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#3a3a3a;border:.5px solid #3a3a3a;border-radius:10px;overflow:hidden;margin-top:28px}
+.nucleo-qs-item{background:var(--negro);padding:28px 30px;border-left:5px solid transparent;transition:background .25s}
+.nucleo-qs-item:hover{background:#1e1e1e}
+.nucleo-qs-proposito{border-left-color:#1F4E79}
+.nucleo-qs-pdv{border-left-color:#3B82C4}
+.nucleo-qs-pos{border-left-color:#A0714F}
+.nucleo-qs-neg{border-left-color:#D07070}
+.nucleo-qs-label{font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px}
+.nucleo-qs-text{font-family:var(--serif);font-size:17px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.55}
+.nucleo-qs-text strong{font-weight:400;color:var(--blanco)}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#3a3a3a;border:.5px solid #3a3a3a;border-radius:10px;overflow:hidden;margin-top:24px}
+.mv-card{background:var(--negro);padding:24px 28px;border-top:4px solid transparent;transition:background .25s}
+.mv-card:hover{background:#1e1e1e}
+.mv-card:nth-child(1){border-top-color:#3B82C4}
+.mv-card:nth-child(2){border-top-color:#A0714F}
+.mv-card-label{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px}
+.mv-card-text{font-family:var(--serif);font-size:18px;font-weight:400;color:rgba(255,255,255,.8);line-height:1.4}
+.mv-card-text em{font-style:italic;color:rgba(255,255,255,.45)}
+
+/* PRINCIPIOS — con línea izquierda de color */
+.principios{display:flex;flex-direction:column}
+.principio{padding:18px 0 18px 16px;border-bottom:.5px solid var(--borde);border-left:4px solid transparent;display:grid;grid-template-columns:220px 1fr;gap:2rem;transition:background .25s;border-radius:0 4px 4px 0}
+.principio:first-child{border-top:.5px solid var(--borde)}
+.principio:hover{background:rgba(31,78,121,.04)}
+.principio:nth-child(1){border-left-color:#1F4E79}
+.principio:nth-child(2){border-left-color:#3B82C4}
+.principio:nth-child(3){border-left-color:#A0714F}
+.principio:nth-child(4){border-left-color:#4E7B62}
+.principio:nth-child(5){border-left-color:#7B6B9E}
+.principio-name{font-size:13px;font-weight:500;color:var(--negro)}
+.principio-desc{font-size:13px;font-weight:300;color:var(--gris);line-height:1.7;max-width:none;margin:0}
+
+/* NEGACIÓN */
+.negacion{background:var(--negro);border-radius:10px;padding:32px 36px;position:relative;overflow:hidden}
+.negacion::before{content:'';position:absolute;left:20px;top:24px;bottom:24px;width:1.5px;background:rgba(255,255,255,.08)}
+.negacion-label{font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:12px}
+.negacion-text{font-family:var(--serif);font-size:20px;font-weight:400;font-style:italic;color:rgba(255,255,255,.75);line-height:1.55;max-width:640px}
+
+/* FUNDADOR */
+.fundador{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:8px}
+.fundador-foto{border-radius:10px;aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--niebla);border:.5px solid rgba(31,78,121,.15)}
+.fundador-foto img.foto-real{width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0}
+.fundador-foto-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center}
+.fundador-foto-label{font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--azul-desc);margin-bottom:8px}
+.fundador-foto-sub{font-size:12px;font-weight:300;color:var(--azul);line-height:1.65;max-width:180px;margin:0}
+.fundador-nombre{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--negro);margin-bottom:4px}
+.fundador-rol{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:24px}
+
+/* BLOQUE DE IMPACTO — negro con líneas de color */
+.impacto{background:var(--negro);padding:64px 96px;position:relative;overflow:hidden}
+.impacto::before{content:'';position:absolute;left:48px;top:48px;bottom:48px;width:1.5px;background:rgba(255,255,255,.06)}
+.impacto-label{font-size:9px;font-weight:500;color:rgba(255,255,255,.25);letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
+.impacto-title{font-family:var(--serif);font-size:clamp(28px,3vw,38px);font-weight:400;font-style:italic;color:var(--blanco);margin-bottom:40px;line-height:1.2}
+.impacto-list{list-style:none;display:flex;flex-direction:column;max-width:640px}
+.impacto-item{display:flex;align-items:baseline;gap:16px;padding:13px 0 13px 14px;border-bottom:.5px solid rgba(255,255,255,.07);border-left:4px solid transparent;transition:background .2s;border-radius:0 4px 4px 0}
+.impacto-item:first-child{border-top:.5px solid rgba(255,255,255,.07)}
+.impacto-item:hover{background:rgba(255,255,255,.03)}
+.impacto-item:nth-child(1){border-left-color:#3B82C4}
+.impacto-item:nth-child(2){border-left-color:#5BA8F5}
+.impacto-item:nth-child(3){border-left-color:#C49A5A}
+.impacto-item:nth-child(4){border-left-color:#6AAF8A}
+.impacto-item:nth-child(5){border-left-color:#9B8FC4}
+.impacto-item:nth-child(6){border-left-color:#C49A5A}
+.impacto-item:nth-child(7){border-left-color:#5BA8F5}
+.impacto-item:nth-child(8){border-left-color:#D07070}
+.impacto-item:nth-child(9){border-left-color:#6AAF8A}
+.impacto-item:nth-child(10){border-left-color:#3B82C4}
+.impacto-item:nth-child(11){border-left-color:#9B8FC4}
+.impacto-verb{font-family:var(--serif);font-size:20px;font-style:italic;font-weight:400;color:var(--blanco);min-width:140px;flex-shrink:0}
+.impacto-noun{font-size:14px;font-weight:300;color:rgba(255,255,255,.4)}
+.impacto-close{margin-top:32px;font-size:13px;font-weight:300;color:rgba(255,255,255,.25);line-height:1.7;max-width:520px}
+
+/* ICONOS EN SECCIONES OSCURAS — derecha, grande */
+.dark-icon{
+  position:absolute;
+  right:48px;top:50%;
+  transform:translateY(-50%);
+  width:220px;height:220px;
+  pointer-events:none;
+  z-index:10;
+  animation:iconFloat 7s ease-in-out infinite;
+}
+.dark-icon img{width:100%;height:100%;object-fit:contain}
+
+/* Icono en el borde entre secciones */
+.border-icon-wrap{
+  position:relative;
+  height:0;
+  z-index:10;
+  display:flex;justify-content:center;
+}
+.border-icon{
+  position:absolute;
+  top:-80px;
+  width:160px;height:160px;
+  pointer-events:none;
+  animation:iconFloat 7s ease-in-out infinite;
+  animation-delay:-3s;
+}
+.border-icon img{width:100%;height:100%;object-fit:contain}
+@keyframes iconFloat{0%,100%{transform:translateY(-50%) rotate(0deg)}33%{transform:translateY(calc(-50% - 10px)) rotate(1.5deg)}66%{transform:translateY(calc(-50% - 5px)) rotate(-1deg)}}
+.chapter-label,.chapter-title,.pullquote,.principios,p{position:relative;z-index:1}
+
+/* FADE ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.footer{background:var(--negro);padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-logo{display:flex;flex-direction:column;gap:6px}
+.footer-logo-img{height:56px;width:auto;opacity:.9}
+.footer-logo span{font-family:var(--sans);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:10px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.75)}
+.footer-meta{font-size:9px;font-weight:300;color:rgba(255,255,255,.18);letter-spacing:.06em}
+
+/* BTN */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:3px;font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s}
+.btn-azul{background:var(--azul);color:var(--blanco)}
+.btn-azul:hover{background:#163a5e;transform:translateY(-1px)}
+.btn-ghost-dark{background:transparent;color:var(--azul);border:.5px solid var(--azul);transition:all .2s}
+.btn-ghost-dark:hover{background:var(--azul);color:var(--blanco);transform:translateY(-1px)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{padding:0 24px}
+  .page-header{padding:100px 48px 56px}
+  .page-header::before{left:24px}
+  .main,.main--narrow{padding:56px 32px}
+  .principio{grid-template-columns:1fr;gap:.5rem}
+  .fundador{grid-template-columns:1fr}
+  .fundador-foto{max-height:400px;aspect-ratio:unset}
+  .impacto{padding:48px 48px}
+  .impacto::before{left:24px}
+  .mv-grid{grid-template-columns:1fr}
+  .nucleo-qs-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:52px;left:0;right:0;background:rgba(253,250,247,.98);border-bottom:.5px solid var(--borde);padding:20px 24px;gap:16px}
+  .nav-burger{display:flex}
+  .main,.main--narrow{padding:48px 20px}
+  .impacto{padding:64px 24px 48px;overflow:visible}
+  .footer{padding:32px 24px;flex-direction:column;align-items:flex-start}
+  .negacion{padding:24px 20px}
+  .page-header{padding:88px 24px 185px;padding-left:52px}
+
+  /* Icono de arriba — debajo del texto, centrado */
+  .page-header .dark-icon{
+    width:90px;height:90px;
+    right:auto;
+    left:0;right:0;
+    margin:auto;
+    top:auto;
+    bottom:56px;
+    transform:none;
+  }
+
+  /* Icono de abajo — borde superior del impacto, centrado */
+  .impacto .dark-icon{
+    width:90px;height:90px;
+    left:0;right:0;
+    margin:auto;
+    top:-45px;
+    transform:none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.svg" alt="Oreka Consultores" class="nav-logo-img">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="quienes-somos.html" class="active">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html" class="nav-cta">Hablemos →</a></li>
+  </ul>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <img src="LOS_ESTRATOS_ISOMETRICOS.png" class="dark-icon" alt="">
+  <div class="page-header-label">Oreka Consultores</div>
+  <h1 class="page-header-title">
+    Hay una pregunta que pocas<br>organizaciones se hacen<br><em>con honestidad.</em>
+  </h1>
+  <div class="page-header-sep">
+    <div class="page-header-sep-line"></div>
+    <div class="page-header-sep-dot"></div>
+    <div class="page-header-sep-line"></div>
+  </div>
+  <p class="page-header-sub">No qué venden. No qué producen. Sino para qué existen realmente — y desde dónde están operando cuando nadie los observa.</p>
+</header>
+
+<!-- MAIN -->
+<main class="main--narrow">
+
+  <!-- APERTURA -->
+  <section class="section fade-up">
+    <p>La mayoría de los problemas visibles en una organización — caída en ventas, agotamiento del equipo, crisis de marca, conflictos internos, crecimiento inestable — rara vez nacen donde parecen. Son síntomas. Debajo hay algo más profundo: una desconexión entre lo que una iniciativa es y desde dónde está tomando sus decisiones.</p>
+    <p>Oreka existe para revelar esa distancia. Y para devolverle a cada iniciativa la claridad de operar desde su verdad interior.</p>
+  </section>
+
+  <div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+  <!-- NÚCLEO — Lo que hace Oreka -->
+  <section class="section fade-up">
+    <div class="chapter-label">Lo que hace Oreka</div>
+    <div class="chapter-title">El núcleo desde donde<br><em>operamos.</em></div>
+
+    <div class="nucleo-qs-grid">
+
+      <div class="nucleo-qs-item nucleo-qs-proposito">
+        <div class="nucleo-qs-label">Propósito</div>
+        <div class="nucleo-qs-text"><strong>Revelar la esencia</strong> humana de las organizaciones para transformar el ecosistema que nos rodea.</div>
+      </div>
+
+      <div class="nucleo-qs-item nucleo-qs-pdv">
+        <div class="nucleo-qs-label">Propuesta de valor</div>
+        <div class="nucleo-qs-text"><strong>Claridad.</strong> Exponer rutas de crecimiento y brindar la seguridad de saber desde dónde se es y desde dónde se decide.</div>
+      </div>
+
+      <div class="nucleo-qs-item nucleo-qs-pos">
+        <div class="nucleo-qs-label">Posicionamiento</div>
+        <div class="nucleo-qs-text"><strong>Ideas y proyectos a la medida</strong> del impacto de cada iniciativa.</div>
+      </div>
+
+      <div class="nucleo-qs-item nucleo-qs-neg">
+        <div class="nucleo-qs-label">La negación</div>
+        <div class="nucleo-qs-text"><strong>Lo vacío.</strong> La consultoría que decora sin construir. El framework que cabe en cualquier empresa porque no pertenece a ninguna.</div>
+      </div>
+
+    </div>
+  </section>
+  <section class="section fade-up">
+    <div class="chapter-label">El origen</div>
+    <div class="chapter-title">Oreka nació en una oficina, sobre una libreta rayada, <em>escuchando historias de cientos de líderes.</em></div>
+
+    <p style="margin-top:20px;"><strong>Juan Bernardo Puentes</strong> lleva más de una década trabajando dentro de empresas, emprendimientos y proyectos humanos de múltiples sectores — desde deportistas hasta proyectos de inversión en diferentes países. Y en todos ellos ha detectado el mismo patrón: cuando algo no funciona, la tendencia siempre es buscar en la superficie.</p>
+
+    <p>Esto le ha llevado a entender que la mayoría de las organizaciones operan de afuera hacia adentro — respondiendo al mercado, a la moda, a la urgencia — cuando la única ruta de crecimiento genuina funciona en sentido contrario.</p>
+
+    <p>A partir de esa revelación, y de años de trabajo con líderes, equipos, artistas y emprendedores, desarrolló la <strong>Metodología Oreka</strong> y el modelo del <strong>Núcleo Estratégico</strong>: una manera propia de comprender las iniciativas humanas como organismos vivos, con propósito, cultura, estructura y capacidad real de transformar el ecosistema que tocan.</p>
+  </section>
+
+  <div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+  <!-- CÓMO ENTIENDEN -->
+  <section class="section fade-up">
+    <div class="chapter-label">Cómo entendemos las organizaciones</div>
+    <div class="chapter-title">No estructuras vacías. <em>Expresiones humanas complejas.</em></div>
+
+    <p style="margin-top:20px;">No vemos las empresas como estructuras vacías diseñadas para producir resultados. Las entendemos como <strong>organismos con núcleo propio</strong>, capaces de generar o limitar valor real en las personas, las comunidades y los ecosistemas que tocan.</p>
+    <p>Eso cambia todo. Cambia las preguntas que hacemos. Cambia lo que buscamos cuando algo no funciona. Y cambia radicalmente la naturaleza de las soluciones que construimos.</p>
+
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-card-label">Misión</div>
+        <div class="mv-card-text"><em>Le devolvemos la singularidad</em> a las iniciativas.</div>
+      </div>
+      <div class="mv-card">
+        <div class="mv-card-label">Visión · 2030</div>
+        <div class="mv-card-text">Un ecosistema de <em>1.000 expresiones humanas</em> que operan desde su verdad interior.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+  <!-- CÓMO TRABAJAN -->
+  <section class="section fade-up">
+    <div class="chapter-label">Cómo trabajamos</div>
+    <div class="chapter-title">Más parecido a escuchar <em>que a consultar.</em></div>
+
+    <p style="margin-top:20px;">Llegamos con preguntas, no con respuestas. Con curiosidad por lo que hay debajo de lo visible — los patrones que ya operan en silencio dentro de cada organización, sin que nadie los haya nombrado todavía.</p>
+
+    <div class="pullquote">
+      <p class="pullquote-text">Hay un momento que se repite. El líder deja de describir su empresa y empieza a reconocerse en ella. Ese es el instante que nos interesa.</p>
+    </div>
+
+    <p>Nuestra metodología no comienza por el mercado ni por las tendencias. Comienza por comprender quién es la iniciativa — y qué tiene genuinamente para dar. Todo lo que viene después: la estrategia, la estructura, la comunicación, el crecimiento — emerge de esa claridad interior.</p>
+  </section>
+
+  <div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+  <!-- PRINCIPIOS -->
+  <section class="section fade-up">
+    <div class="chapter-label">Los principios que gobiernan todo</div>
+    <div class="chapter-title">Quiénes somos <em>cuando hay presión.</em></div>
+
+    <div class="principios" style="margin-top:28px;">
+      <div class="principio">
+        <div class="principio-name">Profundidad sobre superficie</div>
+        <p class="principio-desc">Lo que no tiene sustento no tiene lugar en el trabajo de Oreka. La apariencia sin contenido no es una solución — es un problema disfrazado.</p>
+      </div>
+      <div class="principio">
+        <div class="principio-name">De adentro hacia afuera</div>
+        <p class="principio-desc">Ninguna ruta de crecimiento comienza por el mercado. Comienza por comprender quién es la iniciativa y qué tiene genuinamente para dar.</p>
+      </div>
+      <div class="principio">
+        <div class="principio-name">Apreciamos la singularidad</div>
+        <p class="principio-desc">Cada iniciativa es una expresión humana irrepetible. No existen soluciones transversales porque no existen dos organizaciones idénticas.</p>
+      </div>
+      <div class="principio">
+        <div class="principio-name">La coherencia está en la transparencia</div>
+        <p class="principio-desc">La claridad no viene de los documentos. Viene de la honestidad en cada conversación — con el cliente, con el equipo, con uno mismo.</p>
+      </div>
+      <div class="principio">
+        <div class="principio-name">Sin temor al cambio</div>
+        <p class="principio-desc">Oreka no se aferra a las formas. Se aferra a los principios. Lo que no cambia es la dirección.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+  <!-- LA NEGACIÓN -->
+  <section class="section fade-up">
+    <div class="chapter-label">Lo que Oreka no es</div>
+    <div class="negacion">
+      <div class="negacion-label">La negación</div>
+      <div class="negacion-text">No somos la consultoría que decora sin construir. No somos el framework que cabe en cualquier empresa porque no pertenece a ninguna. No llegamos con un diagnóstico preparado de antemano ni con respuestas que ya habíamos decidido dar antes de escuchar.</div>
+    </div>
+  </section>
+
+  <div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+  <!-- EL FUNDADOR -->
+  <section class="section fade-up">
+    <div class="chapter-label">El fundador</div>
+    <div class="fundador">
+      <div class="fundador-foto">
+        <!-- Foto: descomenta cuando tengas la imagen -->
+        <!-- <img src="foto-juan-bernardo.jpg" class="foto-real" alt="Juan Bernardo Puentes"> -->
+        <div class="fundador-foto-placeholder">
+          <div class="fundador-foto-label">Fotografía</div>
+          <p class="fundador-foto-sub">Juan Bernardo Puentes en contexto real de trabajo.</p>
+        </div>
+      </div>
+      <div>
+        <div class="fundador-nombre">Juan Bernardo Puentes</div>
+        <div class="fundador-rol">Fundador · Oreka Consultores</div>
+        <p>Consultor estratégico, autor y facilitador con más de una década trabajando con líderes, equipos, artistas y emprendedores en múltiples sectores.</p>
+        <p>Su trabajo nace de una observación constante: la mayoría de los problemas organizacionales tienen raíces más profundas que donde se buscan. Esa convicción dio origen a la Metodología Oreka y al modelo del Núcleo Estratégico.</p>
+        <div class="pullquote" style="margin-top:24px;">
+          <p class="pullquote-text">"Yo interpreto y doy forma a los sueños de la gente. Mi trabajo es revelar lo que ya estaba ahí — y darle un nombre que no se olvide."</p>
+        </div>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="contacto.html" class="btn btn-azul">Trabajar con Juan Bernardo →</a>
+          <a href="metodologia.html" class="btn btn-ghost-dark">Ver la metodología</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- BLOQUE DE IMPACTO — fuera del contenedor para full width -->
+<div class="impacto fade-up">
+  <img src="LA_RED_DE_NODOS.png" class="dark-icon" alt="">
+  <div style="max-width:1100px;margin:0 auto;padding:0 48px;position:relative;z-index:1;">
+    <div class="impacto-label">Más de 10 años de trabajo</div>
+    <div class="impacto-title">Lo que queda cuando el trabajo es real.</div>
+    <ul class="impacto-list">
+      <li class="impacto-item"><span class="impacto-verb">Alcanzado</span><span class="impacto-noun">títulos mundiales</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Lanzado</span><span class="impacto-noun">servicios que no existían</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Explorado</span><span class="impacto-noun">territorios nuevos</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Abierto</span><span class="impacto-noun">modelos de negocio propios</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Conseguido</span><span class="impacto-noun">financiamiento</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Revelado</span><span class="impacto-noun">inspiración artística</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Trazado</span><span class="impacto-noun">rutas de emprendimiento</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Liberado</span><span class="impacto-noun">cargas que no eran propias</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Resuelto</span><span class="impacto-noun">conflictos sin nombre</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Comprendido</span><span class="impacto-noun">lo que nadie había sabido leer</span></li>
+      <li class="impacto-item"><span class="impacto-verb">Acompañado</span><span class="impacto-noun">la felicidad de llegar</span></li>
+    </ul>
+    <p class="impacto-close">No lo decimos para impresionar. Lo decimos para que quien llegue aquí sepa que este trabajo tiene historia — y que esa historia está hecha de iniciativas reales, no de casos de estudio.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="logo-blanco.svg" alt="Oreka Consultores" class="footer-logo-img">
+    <span>orekaconsultores.com</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="footer-meta">© 2025 Oreka Consultores</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// Barra de progreso
+window.addEventListener('scroll', () => {
+  const pct = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+
+const obs = new IntersectionObserver(e => {
+  e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
+}, {threshold: 0.08});
+document.querySelectorAll('.fade-up, .sep').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

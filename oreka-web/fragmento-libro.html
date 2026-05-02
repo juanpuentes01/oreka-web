@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leer un fragmento — El Núcleo Estratégico · Oreka</title>
+<meta name="description" content="Una manera de ver las empresas y al ser humano detrás de ellas. Fragmento de El Núcleo Estratégico, por Juan Bernardo Puentes.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --azul:#1F4E79;
+  --azul-desc:#3B82C4;
+  --niebla:#EBF3FB;
+  --tierra:#A0714F;
+  --gris:#6B7280;
+  --negro:#1A1A1A;
+  --blanco:#FFFFFF;
+  --fondo:#FDFAF7;
+  --borde:rgba(0,0,0,0.08);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost',Arial,sans-serif;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--fondo);color:var(--negro);line-height:1.7;font-weight:300}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,250,247,0.96);backdrop-filter:blur(8px);border-bottom:.5px solid var(--borde);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-logo{display:flex;align-items:center}
+.nav-logo-img{height:46px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);transition:color .2s}
+.nav-links a:hover{color:var(--azul)}
+.nav-links a.active{color:var(--azul)}
+.nav-cta{color:var(--azul) !important;border:.5px solid var(--azul);padding:5px 14px;border-radius:3px;transition:all .2s !important}
+.nav-cta:hover{background:var(--azul);color:var(--blanco) !important}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:20px;height:1px;background:var(--negro)}
+.progress-bar{position:fixed;top:52px;left:0;z-index:99;height:2px;background:var(--azul-desc);width:0%;transition:width .1s linear;opacity:.8}
+
+/* HERO */
+.frag-hero{
+  background:var(--azul);
+  padding:120px 96px 72px;
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr 320px;
+  gap:3rem;align-items:end;
+}
+.frag-hero::before{content:'';position:absolute;left:48px;top:72px;bottom:40px;width:1.5px;background:rgba(255,255,255,.08)}
+.frag-back{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:32px;transition:color .2s}
+.frag-back:hover{color:rgba(255,255,255,.7)}
+.frag-back::before{content:'←';font-size:12px}
+.frag-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:4px;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:rgba(160,113,79,.25);color:#c8976a;border:.5px solid rgba(160,113,79,.3);margin-bottom:16px}
+.frag-badge-dot{width:4px;height:4px;border-radius:50%;background:currentColor;flex-shrink:0}
+.frag-subtitle{font-size:11px;font-weight:400;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.frag-title{font-family:var(--serif);font-size:clamp(32px,4vw,50px);font-weight:400;color:var(--blanco);line-height:1.08;margin-bottom:12px}
+.frag-title em{font-style:italic;color:rgba(255,255,255,.55)}
+.frag-autor{font-size:13px;font-weight:300;color:rgba(255,255,255,.35);margin-bottom:32px}
+.frag-sep{display:flex;align-items:center;width:80px;margin-bottom:20px}
+.frag-sep-line{flex:1;height:.5px;background:rgba(255,255,255,.15)}
+.frag-sep-dot{width:4px;height:4px;border-radius:50%;background:var(--tierra);margin:0 8px;flex-shrink:0}
+.frag-desc{font-size:14px;font-weight:300;color:rgba(255,255,255,.35);max-width:520px;line-height:1.85}
+
+/* PORTADA EN HERO */
+.frag-portada{
+  display:flex;justify-content:center;align-items:flex-end;
+  padding-bottom:4px;
+}
+.frag-portada-box{
+  width:180px;aspect-ratio:2/3;
+  background:rgba(255,255,255,.06);
+  border:.5px solid rgba(255,255,255,.12);
+  border-radius:6px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:1.5rem;text-align:center;
+  position:relative;
+}
+.frag-portada-box img.portada-real{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:6px}
+.frag-portada-atomo{width:48px;height:48px;margin-bottom:16px;opacity:.35}
+.frag-portada-title{font-family:var(--serif);font-size:14px;color:var(--blanco);line-height:1.3;margin-bottom:6px}
+.frag-portada-sep{width:20px;height:.5px;background:rgba(255,255,255,.25);margin:0 auto 6px}
+.frag-portada-author{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+/* FRAGMENTO LAYOUT */
+.frag-layout{
+  display:grid;
+  grid-template-columns:1fr 280px;
+  gap:4rem;
+  max-width:1100px;margin:0 auto;
+  padding:80px 48px;
+  align-items:start;
+}
+
+/* TEXTO DEL LIBRO */
+.frag-texto{max-width:640px}
+
+/* Epígrafe */
+.frag-epigrafe{
+  margin-bottom:48px;
+  padding:20px 24px;
+  border-left:2px solid var(--tierra);
+  background:rgba(160,113,79,.04);
+  border-radius:0 6px 6px 0;
+}
+.frag-epigrafe-cita{
+  font-family:var(--serif);font-size:18px;font-style:italic;
+  color:var(--negro);line-height:1.55;margin-bottom:8px;
+}
+.frag-epigrafe-fuente{font-size:11px;color:var(--gris);letter-spacing:.06em}
+
+/* Título del fragmento */
+.frag-cap-num{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--azul-desc);margin-bottom:8px}
+.frag-cap-title{font-family:var(--serif);font-size:30px;font-weight:400;color:var(--negro);line-height:1.15;margin-bottom:36px}
+.frag-cap-title em{font-style:italic}
+
+/* Cuerpo */
+.frag-texto p{
+  font-family:var(--serif);
+  font-size:18px;font-weight:400;
+  color:#2a2a2a;line-height:2;
+  margin-bottom:28px;
+}
+.frag-texto p strong{font-weight:500}
+.frag-texto p em{font-style:italic}
+
+/* Separador interno */
+.frag-isep{
+  display:flex;align-items:center;
+  margin:40px 0;width:100px;
+}
+.frag-isep-line{flex:1;height:.5px;background:var(--borde)}
+.frag-isep-dot{width:4px;height:4px;border-radius:50%;background:var(--azul);margin:0 8px;flex-shrink:0}
+
+/* Pullquote */
+.frag-pull{
+  border-left:3px solid var(--azul);
+  padding:8px 0 8px 24px;
+  margin:36px 0;
+}
+.frag-pull p{
+  font-family:var(--serif);
+  font-size:22px !important;font-style:italic;
+  color:var(--azul) !important;
+  line-height:1.5 !important;margin-bottom:0 !important;
+}
+
+/* Fin del fragmento — cortina */
+.frag-cortina{
+  position:relative;
+  margin-top:-80px;
+  padding-top:80px;
+  background:linear-gradient(to bottom, rgba(253,250,247,0) 0%, rgba(253,250,247,1) 60%);
+  text-align:center;
+  padding-bottom:48px;
+}
+.frag-cortina-texto{
+  font-family:var(--serif);font-size:18px;font-style:italic;
+  color:var(--gris);margin-bottom:28px;line-height:1.6;
+}
+.frag-cortina-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.frag-cortina-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--azul);color:var(--blanco);
+  padding:14px 28px;border-radius:4px;
+  font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  transition:all .25s;margin-right:12px;
+}
+.frag-cortina-cta:hover{background:#163a5e;transform:translateY(-1px);box-shadow:0 6px 20px rgba(31,78,121,.25)}
+.frag-cortina-cta::after{content:'→';display:inline-block;transition:transform .3s ease}
+.frag-cortina-cta:hover::after{transform:translateX(5px)}
+.frag-cortina-sec{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--azul);
+  padding:14px 24px;border-radius:4px;
+  font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  border:.5px solid var(--azul);
+  transition:all .25s;
+}
+.frag-cortina-sec:hover{background:var(--azul);color:var(--blanco);transform:translateY(-1px)}
+
+/* SIDEBAR */
+.frag-sidebar{position:sticky;top:80px}
+.frag-sidebar-info{
+  background:var(--blanco);
+  border:.5px solid var(--borde);
+  border-radius:8px;
+  padding:20px 22px;
+  margin-bottom:16px;
+}
+.frag-sidebar-label{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:12px;padding-bottom:8px;border-bottom:.5px solid var(--borde)}
+.frag-sidebar-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:.5px solid var(--borde);font-size:12px}
+.frag-sidebar-row:last-child{border-bottom:none}
+.frag-sidebar-row span:first-child{color:var(--gris);font-weight:300}
+.frag-sidebar-row span:last-child{color:var(--negro);font-weight:500;text-align:right}
+
+.frag-sidebar-cta{
+  background:var(--negro);
+  border-radius:8px;padding:22px;
+  margin-bottom:16px;
+}
+.frag-sidebar-cta-text{font-family:var(--serif);font-size:15px;font-style:italic;color:rgba(255,255,255,.75);line-height:1.55;margin-bottom:14px}
+.frag-sidebar-cta-btn{
+  display:block;text-align:center;padding:10px;border-radius:4px;
+  font-family:var(--sans);font-size:10px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:var(--blanco);color:var(--negro);
+  transition:all .2s;
+}
+.frag-sidebar-cta-btn:hover{background:var(--niebla)}
+
+.frag-sidebar-toc{
+  background:var(--blanco);
+  border:.5px solid var(--borde);
+  border-radius:8px;padding:20px 22px;
+}
+.frag-toc-item{
+  display:block;font-size:12px;font-weight:300;
+  color:var(--gris);padding:7px 0;
+  border-bottom:.5px solid var(--borde);
+  transition:color .2s;line-height:1.4;
+}
+.frag-toc-item:last-child{border-bottom:none}
+.frag-toc-item.active{color:var(--azul);font-weight:500}
+.frag-toc-item:hover{color:var(--azul)}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.footer{background:var(--negro);padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-logo{display:flex;flex-direction:column;gap:6px}
+.footer-logo-img{height:56px;width:auto;opacity:.9}
+.footer-logo span{font-family:var(--sans);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.75)}
+.footer-meta{font-size:9px;color:rgba(255,255,255,.18);letter-spacing:.06em}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{padding:0 24px}
+  .frag-hero{grid-template-columns:1fr;padding:100px 48px 56px}
+  .frag-hero::before{left:24px}
+  .frag-portada{display:none}
+  .frag-layout{grid-template-columns:1fr;gap:2.5rem;padding:48px 32px}
+  .frag-sidebar{position:static}
+  .footer{padding:36px}
+}
+@media(max-width:640px){
+  .nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:52px;left:0;right:0;background:rgba(253,250,247,.98);border-bottom:.5px solid var(--borde);padding:20px 24px;gap:16px}
+  .nav-burger{display:flex}
+  .frag-hero{padding:88px 24px 48px;padding-left:52px}
+  .frag-cortina-btns{flex-direction:column;align-items:center;gap:10px}
+  .frag-cortina-cta,.frag-cortina-sec{width:100%;max-width:280px;justify-content:center;text-align:center}
+  .frag-texto p{font-size:16px}
+  .footer{padding:32px 24px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.svg" alt="Oreka Consultores" class="nav-logo-img">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html" class="active">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html" class="nav-cta">Hablemos →</a></li>
+  </ul>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- HERO -->
+<header class="frag-hero">
+  <div>
+    <a href="libro.html" class="frag-back">Volver al libro</a>
+    <div class="frag-badge"><span class="frag-badge-dot"></span>Fragmento</div>
+    <div class="frag-subtitle">El Núcleo Estratégico</div>
+    <h1 class="frag-title">Una manera de ver<br>las empresas — <em>y al ser<br>humano detrás de ellas.</em></h1>
+    <p class="frag-autor">Por Juan Bernardo Puentes Jiménez</p>
+    <div class="frag-sep"><div class="frag-sep-line"></div><div class="frag-sep-dot"></div><div class="frag-sep-line"></div></div>
+    <p class="frag-desc">Introducción del libro. Lo que ninguno de los modelos convencionales me explicaba — y lo que la física finalmente sí.</p>
+  </div>
+  <div class="frag-portada">
+    <div class="frag-portada-box">
+      <!-- <img src="portada-libro.jpg" class="portada-real" alt=""> -->
+      <svg class="frag-portada-atomo" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="3" fill="white" opacity=".6"/>
+        <ellipse cx="20" cy="20" rx="17" ry="7" stroke="white" stroke-width=".8" fill="none" opacity=".4"/>
+        <ellipse cx="20" cy="20" rx="17" ry="7" stroke="white" stroke-width=".8" fill="none" opacity=".4" transform="rotate(60 20 20)"/>
+        <ellipse cx="20" cy="20" rx="17" ry="7" stroke="white" stroke-width=".8" fill="none" opacity=".4" transform="rotate(120 20 20)"/>
+      </svg>
+      <div class="frag-portada-title">El Núcleo<br>Estratégico</div>
+      <div class="frag-portada-sep"></div>
+      <div class="frag-portada-author">Juan Bernardo Puentes</div>
+    </div>
+  </div>
+</header>
+
+<!-- FRAGMENTO -->
+<div class="frag-layout">
+
+  <div class="frag-texto fade-up">
+
+    <!-- Epígrafe -->
+    <div class="frag-epigrafe">
+      <div class="frag-epigrafe-cita">"No heredamos la tierra de nuestros ancestros, la tomamos prestada de nuestros hijos."</div>
+      <div class="frag-epigrafe-fuente">Proverbio nativo americano</div>
+    </div>
+    <p>Lo mismo ocurre con las organizaciones que construimos.</p>
+
+    <div class="frag-isep"><div class="frag-isep-line"></div><div class="frag-isep-dot"></div><div class="frag-isep-line"></div></div>
+
+    <!-- Sección I -->
+    <div class="frag-cap-num">I.</div>
+    <div class="frag-cap-title">El malentendido</div>
+
+    <p>Durante mucho tiempo creí que entendía lo que era una empresa.</p>
+
+    <p>Había estudiado los balances, los flujos de caja, las estructuras de capital. Conocía los modelos de Porter, las matrices de BCG, los frameworks de McKinsey. Podía leer un estado financiero como otros leen el periódico — con fluidez, con criterio, con la tranquilidad de quien sabe lo que está mirando.</p>
+
+    <p>Llevo más de una década ejerciendo la consultoría empresarial. En ese tiempo he entrado a organizaciones de todo tipo — grandes corporaciones y pequeños emprendimientos, empresas familiares y multinacionales, startups con hambre y empresas establecidas con miedo. He conocido líderes, empresarios, trabajadores de todos los niveles. He compartido conversaciones con deportistas de alto rendimiento, artistas, emprendedores soñadores que construyen algo desde cero con muy poco más que convicción.</p>
+
+    <p>Y en ese ir y venir, en esa acumulación de historias y contextos y realidades humanas, comencé a notar algo que los modelos no me habían enseñado a ver.</p>
+
+    <p>Los líderes, con frecuencia, se sentían incomprendidos. No solo dentro de la empresa — también en sus hogares. Cargaban con la sensación de que los demás eran ingratos, de que nadie entendía realmente lo que implicaba sostener algo, de que estaban solos en una responsabilidad que nadie más parecía tomar en serio. Los trabajadores, por su parte, sentían con igual frecuencia que no se les tenía en cuenta. Que eran piezas intercambiables en una maquinaria que los necesitaba pero no los veía. Y ese sentimiento no se quedaba en la oficina — se iba con ellos a casa, afectaba sus relaciones, su humor, su sentido de valor propio.</p>
+
+    <p>Fue ahí donde algo se abrió en mi manera de entender lo que hacía.</p>
+
+    <div class="frag-pull">
+      <p>Me di cuenta de que lo que ocurría dentro de una empresa no era independiente de lo que ocurría fuera de ella.</p>
+    </div>
+
+    <p>Que una familia se desarrolla — o se deteriora — en función del entorno laboral en que sus miembros pasan la mayor parte de sus horas despiertas. Que el sustento económico es solo una parte de lo que una organización le da o le quita a una persona. Que cuando hay malas praxis empresariales — cuando se gestiona sin propósito, sin cultura, sin consideración por lo humano — la sociedad entera tiende a ponerse cargada. Más ansiosa. Más fragmentada. Menos capaz de construir.</p>
+
+    <p>Y entonces comencé a sentir que mi trabajo era más profundo de lo que había asumido. Que no se trataba solo de mejorar números, de conseguir objetivos, de hacer cosas que se ven inteligentes e importantes en una presentación pero que al final no cambian nada fundamental. Comencé a ver la consultoría como lo que creo que siempre debió ser — un servicio social antes que económico. Una manera de ser pieza en el crecimiento de las personas que se ven afectadas por mi trabajo, directa o indirectamente.</p>
+
+    <p>Esa convicción es la que está detrás de todo lo que escribo aquí.</p>
+
+    <div class="frag-isep"><div class="frag-isep-line"></div><div class="frag-isep-dot"></div><div class="frag-isep-line"></div></div>
+
+    <p>Pero había algo que ninguno de los modelos convencionales me explicaba. Algo que sentía cada vez que entraba a una organización viva — una donde la gente llegaba temprano no porque le tocaba sino porque quería, donde las conversaciones en los pasillos tenían más información real que las reuniones formales, donde los clientes no compraban un producto sino que pertenecían a algo. Había una energía ahí que los estados financieros no capturaban. Una fuerza que los organigramas no mostraban. Una realidad que los frameworks no alcanzaban a describir.</p>
+
+    <p>Y contrastaba brutalmente con otras organizaciones — más grandes, más conocidas, más citadas en los libros de texto — donde todo estaba en orden sobre el papel y algo estaba profundamente vacío por dentro.</p>
+
+    <p>Tardé años en entender la diferencia. Y cuando finalmente lo entendí, me di cuenta de que el problema no estaba en las organizaciones. Estaba en la manera en que las miramos.</p>
+
+    <div class="frag-isep"><div class="frag-isep-line"></div><div class="frag-isep-dot"></div><div class="frag-isep-line"></div></div>
+
+    <p>Hemos cometido un error conceptual profundo y costoso: hemos tratado a las empresas como construcciones — como si fueran edificios que se diseñan, se levantan y se administran. Como si la clave estuviera en la arquitectura correcta, en los materiales adecuados, en los planos bien trazados.</p>
+
+    <div class="frag-pull">
+      <p>Pero una empresa no es un edificio. Es un organismo.</p>
+    </div>
+
+    <p>Y la diferencia no es semántica — es fundamental. Un edificio existe porque alguien lo construyó. Un organismo existe porque algo dentro de él quiere vivir. Un edificio se mantiene con mantenimiento. Un organismo se mantiene con metabolismo. Un edificio, abandonado, se deteriora. Un organismo, abandonado, busca la manera de sobrevivir o muere con dignidad.</p>
+
+    <p>Cuando tratamos a las empresas como edificios — como construcciones materiales que se optimizan, se reestructuran, se venden y se compran — perdemos de vista lo único que realmente importa: que detrás de cada empresa genuina hay un impulso humano irrenunciable. Un grupo de personas que decidieron que juntas podían hacer algo que solas era imposible. Una iniciativa. Una forma de vida colectiva.</p>
+
+    <p>Eso no es materialismo. Es naturaleza.</p>
+
+    <div class="frag-isep"><div class="frag-isep-line"></div><div class="frag-isep-dot"></div><div class="frag-isep-line"></div></div>
+
+    <p>Lo que me propongo en este libro es sencillo en su intención y profundo en sus implicaciones: quiero mostrarte que una empresa genuina no es una construcción económica — es una forma orgánica de expresión humana, tan natural como un ecosistema, tan física como un átomo, tan viva como cualquier forma de vida que conocemos.</p>
+
+    <p>Y quiero mostrarte algo más: que existe otro tipo de estructura — que usa el nombre de empresa, que ocupa su lugar en el mercado, que habla su lenguaje — pero que no tiene su naturaleza. Una imitación sin vida interior. Un cristal artificial donde debería haber un organismo vivo.</p>
+
+    <p>Entender la diferencia entre los dos no es un ejercicio académico. Es una herramienta de supervivencia — para quien quiere construir algo genuino, para quien quiere trabajar en algo que valga la pena, para quien quiere invertir en algo real, para quien simplemente quiere entender el mundo económico en que vivimos con más claridad y menos ilusión.</p>
+
+    <p>Todo empieza por cambiar la pregunta. No <em>¿cómo funciona una empresa?</em> sino <em>¿qué es realmente una empresa?</em></p>
+
+    <!-- CORTINA — fin del fragmento -->
+    <div class="frag-cortina">
+      <p class="frag-cortina-texto">La respuesta me llegó, curiosamente, de la física.<br>Para leer el resto del libro —</p>
+      <div class="frag-cortina-btns">
+        <a href="quiero-el-libro.html" class="frag-cortina-cta">Quiero este libro</a>
+        <a href="libro.html" class="frag-cortina-sec">Conocer más</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="frag-sidebar fade-up">
+
+    <div class="frag-sidebar-info">
+      <div class="frag-sidebar-label">Sobre este fragmento</div>
+      <div class="frag-sidebar-row"><span>Sección</span><span>Introducción</span></div>
+      <div class="frag-sidebar-row"><span>Lectura</span><span>8 min</span></div>
+      <div class="frag-sidebar-row"><span>Autor</span><span>Juan Bernardo Puentes</span></div>
+    </div>
+
+    <div class="frag-sidebar-cta">
+      <div class="frag-sidebar-cta-text">"Una vez que aprendes a leerlas así, no puedes dejar de hacerlo."</div>
+      <a href="quiero-el-libro.html" class="frag-sidebar-cta-btn">Quiero este libro →</a>
+    </div>
+
+    <div class="frag-sidebar-toc" style="margin-top:16px;">
+      <div class="frag-sidebar-label">En este fragmento</div>
+      <a href="#" class="frag-toc-item active">El malentendido</a>
+      <a href="#" class="frag-toc-item">Lo que los modelos no ven</a>
+      <a href="#" class="frag-toc-item">Edificio vs. organismo</a>
+      <a href="#" class="frag-toc-item">La pregunta correcta</a>
+    </div>
+
+  </aside>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="logo-blanco.svg" alt="Oreka Consultores" class="footer-logo-img">
+    <span>orekaconsultores.com</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="footer-meta">© 2025 Oreka Consultores</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  const pct = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+const obs = new IntersectionObserver(e => {
+  e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
+}, {threshold:0.06});
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

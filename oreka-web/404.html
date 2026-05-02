@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página no encontrada — Oreka Consultores</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --azul:#1F4E79;
+  --azul-desc:#3B82C4;
+  --niebla:#EBF3FB;
+  --tierra:#A0714F;
+  --gris:#6B7280;
+  --negro:#1A1A1A;
+  --blanco:#FFFFFF;
+  --fondo:#FDFAF7;
+  --borde:rgba(0,0,0,0.08);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost',Arial,sans-serif;
+}
+html,body{height:100%}
+body{font-family:var(--sans);background:var(--negro);color:var(--blanco);display:flex;flex-direction:column;min-height:100vh;font-weight:300;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,26,26,0.96);backdrop-filter:blur(8px);border-bottom:.5px solid rgba(255,255,255,.06);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-logo{display:flex;align-items:center}
+.nav-logo-img{height:46px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);transition:color .2s}
+.nav-links a:hover{color:var(--blanco)}
+.nav-cta{color:rgba(255,255,255,.6) !important;border:.5px solid rgba(255,255,255,.2);padding:5px 14px;border-radius:3px;transition:all .2s !important}
+.nav-cta:hover{background:rgba(255,255,255,.1);color:var(--blanco) !important}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:20px;height:1px;background:var(--blanco)}
+
+/* MAIN */
+.main{
+  flex:1;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:120px 48px 80px;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+
+/* Línea vertical izquierda */
+.main::before{
+  content:'';position:absolute;
+  left:48px;top:0;bottom:0;
+  width:1.5px;background:rgba(255,255,255,.06);
+}
+
+/* Vesica de fondo */
+.bg-vesica{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;height:600px;
+  opacity:.03;
+  pointer-events:none;
+}
+
+/* Número 404 */
+.num-404{
+  font-family:var(--serif);
+  font-size:clamp(120px,18vw,200px);
+  font-weight:400;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.12);
+  line-height:1;
+  letter-spacing:-.02em;
+  margin-bottom:0;
+  position:relative;z-index:1;
+  user-select:none;
+}
+
+.sep{display:flex;align-items:center;justify-content:center;gap:10px;margin:24px 0 32px;position:relative;z-index:1}
+.sep-line{width:60px;height:.5px;background:rgba(255,255,255,.12)}
+.sep-dot{width:4px;height:4px;border-radius:50%;background:var(--tierra);flex-shrink:0}
+
+.title-404{
+  font-family:var(--serif);
+  font-size:clamp(24px,3vw,36px);
+  font-weight:400;color:var(--blanco);
+  line-height:1.2;margin-bottom:16px;
+  position:relative;z-index:1;
+}
+.title-404 em{font-style:italic;color:rgba(255,255,255,.5)}
+
+.sub-404{
+  font-size:14px;font-weight:300;
+  color:rgba(255,255,255,.35);
+  line-height:1.8;max-width:480px;
+  margin-bottom:48px;
+  position:relative;z-index:1;
+}
+
+/* ACCIONES */
+.acciones{
+  display:flex;gap:12px;flex-wrap:wrap;
+  justify-content:center;
+  position:relative;z-index:1;
+}
+.btn-home{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--blanco);color:var(--negro);
+  padding:12px 24px;border-radius:4px;
+  font-family:var(--sans);font-size:10px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  transition:all .25s;border:none;cursor:pointer;
+}
+.btn-home::after{content:'→';display:inline-block;transition:transform .3s}
+.btn-home:hover{background:var(--niebla);transform:translateY(-1px)}
+.btn-home:hover::after{transform:translateX(4px)}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:rgba(255,255,255,.5);
+  padding:12px 24px;border-radius:4px;
+  font-family:var(--sans);font-size:10px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  border:.5px solid rgba(255,255,255,.15);
+  transition:all .25s;cursor:pointer;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,.4);color:var(--blanco);transform:translateY(-1px)}
+
+/* LINKS RÁPIDOS */
+.links-rapidos{
+  margin-top:64px;
+  display:flex;gap:0;
+  border:.5px solid rgba(255,255,255,.08);
+  border-radius:8px;overflow:hidden;
+  position:relative;z-index:1;
+}
+.link-rapido{
+  padding:14px 24px;
+  font-size:10px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+  border-right:.5px solid rgba(255,255,255,.08);
+  transition:all .2s;
+}
+.link-rapido:last-child{border-right:none}
+.link-rapido:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.8)}
+
+/* FOOTER */
+.footer{background:var(--negro);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:.5px solid rgba(255,255,255,.06)}
+.footer-logo-img{height:40px;width:auto;opacity:.5}
+.footer-meta{font-size:9px;color:rgba(255,255,255,.15);letter-spacing:.06em}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:52px;left:0;right:0;background:rgba(26,26,26,.98);border-bottom:.5px solid rgba(255,255,255,.06);padding:20px 24px;gap:16px}
+  .nav-burger{display:flex}
+  .main{padding:100px 24px 64px}
+  .main::before{display:none}
+  .links-rapidos{flex-wrap:wrap}
+  .link-rapido{flex:1;min-width:calc(50% - 1px);text-align:center}
+  .footer{padding:24px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo-blanco.svg" alt="Oreka Consultores" class="nav-logo-img">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html" class="nav-cta">Hablemos →</a></li>
+  </ul>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+  <svg class="bg-vesica" viewBox="0 0 200 200" fill="none">
+    <path d="M100 10C130 40 150 70 150 100C150 130 130 160 100 190C70 160 50 130 50 100C50 70 70 40 100 10Z" fill="white"/>
+    <path d="M10 100C40 70 70 50 100 50C130 50 160 70 190 100C160 130 130 150 100 150C70 150 40 130 10 100Z" fill="white"/>
+  </svg>
+
+  <div class="num-404">404</div>
+
+  <div class="sep">
+    <div class="sep-line"></div>
+    <div class="sep-dot"></div>
+    <div class="sep-line"></div>
+  </div>
+
+  <h1 class="title-404">
+    Esta página no existe.<br>
+    <em>Pero lo que buscas, sí.</em>
+  </h1>
+
+  <p class="sub-404">La dirección que seguiste no lleva a ningún lugar — igual que muchas rutas de crecimiento que no parten desde adentro. Volvamos al principio.</p>
+
+  <div class="acciones">
+    <a href="index.html" class="btn-home">Volver al inicio</a>
+    <a href="contacto.html" class="btn-ghost">Hablemos →</a>
+  </div>
+
+  <div class="links-rapidos">
+    <a href="quienes-somos.html" class="link-rapido">Quiénes somos</a>
+    <a href="metodologia.html" class="link-rapido">Metodología</a>
+    <a href="libro.html" class="link-rapido">El libro</a>
+    <a href="reflexiones.html" class="link-rapido">Reflexiones</a>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="logo-blanco.svg" alt="Oreka Consultores" class="footer-logo-img">
+  <div class="footer-meta">© 2025 Oreka Consultores</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

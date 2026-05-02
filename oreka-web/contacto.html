@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Oreka Consultores</title>
+<meta name="description" content="Si sientes que hay algo que aún no has podido nombrar — hablemos. La primera conversación no es una sesión de venta.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --azul:#1F4E79;
+  --azul-desc:#3B82C4;
+  --niebla:#EBF3FB;
+  --tierra:#A0714F;
+  --gris:#6B7280;
+  --negro:#1A1A1A;
+  --blanco:#FFFFFF;
+  --fondo:#FDFAF7;
+  --borde:rgba(0,0,0,0.08);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost',Arial,sans-serif;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--fondo);color:var(--negro);line-height:1.7;font-weight:300}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,250,247,0.96);backdrop-filter:blur(8px);border-bottom:.5px solid var(--borde);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-logo{display:flex;align-items:center}
+.nav-logo-img{height:46px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);transition:color .2s}
+.nav-links a:hover{color:var(--azul)}
+.nav-links a.active{color:var(--azul)}
+.nav-cta{color:var(--azul) !important;border:.5px solid var(--azul);padding:5px 14px;border-radius:3px;transition:all .2s !important}
+.nav-cta:hover{background:var(--azul);color:var(--blanco) !important}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:20px;height:1px;background:var(--negro)}
+
+.progress-bar{position:fixed;top:52px;left:0;z-index:99;height:2px;background:var(--azul-desc);width:0%;transition:width .1s linear;opacity:.8}
+
+/* PAGE HEADER */
+.page-header{background:var(--negro);padding:120px 96px 80px;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;left:48px;top:72px;bottom:40px;width:1.5px;background:rgba(255,255,255,.08)}
+.page-header-label{font-size:9px;font-weight:500;color:rgba(255,255,255,.25);letter-spacing:.22em;text-transform:uppercase;margin-bottom:20px}
+.page-header-title{font-family:var(--serif);font-size:clamp(36px,4vw,54px);font-weight:400;color:var(--blanco);line-height:1.08;max-width:640px;margin-bottom:16px}
+.page-header-title em{font-style:italic;color:rgba(255,255,255,.45)}
+.page-header-sep{display:flex;align-items:center;width:80px;margin-bottom:20px}
+.page-header-sep-line{flex:1;height:.5px;background:rgba(255,255,255,.15)}
+.page-header-sep-dot{width:4px;height:4px;border-radius:50%;background:var(--tierra);margin:0 8px;flex-shrink:0}
+.page-header-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.3);max-width:500px;line-height:1.85}
+
+/* DARK ICON */
+.dark-icon{position:absolute;right:48px;top:50%;transform:translateY(-50%);width:220px;height:220px;pointer-events:none;z-index:10;animation:iconFloat 7s ease-in-out infinite;opacity:1}
+.dark-icon img{width:100%;height:100%;object-fit:contain}
+@keyframes iconFloat{0%,100%{transform:translateY(-50%) rotate(0deg)}33%{transform:translateY(calc(-50% - 10px)) rotate(1.5deg)}66%{transform:translateY(calc(-50% - 5px)) rotate(-1deg)}}
+
+/* LAYOUT */
+.main{max-width:1100px;margin:0 auto;padding:72px 48px}
+.sep{display:flex;align-items:center;margin:48px 0}
+.sep-line{flex:1;height:.5px;background:var(--borde);transform:scaleX(0);transform-origin:left;transition:transform .8s ease}
+.sep.visible .sep-line{transform:scaleX(1)}
+.sep-dot{width:5px;height:5px;border-radius:50%;background:var(--azul);margin:0 10px;flex-shrink:0;opacity:0;transition:opacity .3s ease .7s}
+.sep.visible .sep-dot{opacity:1}
+p{font-size:14px;font-weight:300;color:var(--gris);line-height:1.85;margin-bottom:12px}
+p strong{color:var(--negro);font-weight:500}
+.slabel{font-size:9px;font-weight:500;color:var(--gris);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:.5px solid var(--borde)}
+
+/* GRID CONTACTO */
+.contacto-grid{display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:start}
+
+/* FORMULARIO */
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-label{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gris)}
+.form-input{
+  background:var(--blanco);
+  border:.5px solid var(--borde);
+  border-radius:4px;
+  padding:12px 16px;
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:300;
+  color:var(--negro);
+  outline:none;
+  transition:border-color .2s,box-shadow .2s;
+  width:100%;
+}
+.form-input::placeholder{color:var(--gris);opacity:.5}
+.form-input:focus{border-color:var(--azul-desc);box-shadow:0 0 0 3px rgba(59,130,196,.08)}
+.form-textarea{min-height:120px;resize:vertical;line-height:1.65}
+
+/* TIPO DE INICIATIVA */
+.tipo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tipo-option{
+  border:.5px solid var(--borde);
+  border-radius:4px;
+  padding:10px 8px;
+  font-size:12px;
+  font-weight:400;
+  color:var(--gris);
+  background:var(--blanco);
+  cursor:pointer;
+  transition:all .2s;
+  text-align:center;
+  user-select:none;
+}
+.tipo-option:hover{border-color:var(--azul-desc);color:var(--azul)}
+.tipo-option.selected{border-color:var(--azul);color:var(--azul);background:var(--niebla)}
+
+/* BTN SUBMIT */
+.btn-submit{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--azul);color:var(--blanco);
+  border:none;border-radius:4px;
+  padding:14px 28px;
+  font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;width:100%;justify-content:center;
+  transition:all .25s;margin-top:8px;
+}
+.btn-submit:hover{background:#163a5e;transform:translateY(-1px);box-shadow:0 6px 20px rgba(31,78,121,.25)}
+.form-note{font-size:11px;color:var(--gris);opacity:.6;text-align:center;margin-top:10px;margin-bottom:0}
+
+/* SIDEBAR */
+.sidebar{}
+.sidebar-quote{
+  background:var(--negro);
+  border-radius:10px;
+  padding:32px 28px;
+  position:relative;overflow:hidden;
+  margin-bottom:24px;
+}
+.sidebar-quote::before{content:'';position:absolute;left:16px;top:24px;bottom:24px;width:1.5px;background:rgba(255,255,255,.08)}
+.sidebar-quote-text{font-family:var(--serif);font-size:18px;font-style:italic;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:12px}
+.sidebar-quote-source{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+
+.canales{display:flex;flex-direction:column}
+.canal{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 0;
+  border-bottom:.5px solid var(--borde);
+  transition:background .2s;
+}
+.canal:first-child{border-top:.5px solid var(--borde)}
+.canal-info{}
+.canal-name{font-size:13px;font-weight:500;color:var(--negro);margin-bottom:2px}
+.canal-sub{font-size:12px;font-weight:300;color:var(--gris)}
+.canal-link{
+  font-size:10px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--azul);
+  border:.5px solid var(--azul);
+  padding:5px 12px;border-radius:3px;
+  transition:all .2s;white-space:nowrap;
+  flex-shrink:0;margin-left:1rem;
+}
+.canal-link:hover{background:var(--azul);color:var(--blanco)}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.footer{background:var(--negro);padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-logo{display:flex;flex-direction:column;gap:6px}
+.footer-logo-img{height:56px;width:auto;opacity:.9}
+.footer-logo span{font-family:var(--sans);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.75)}
+.footer-meta{font-size:9px;color:rgba(255,255,255,.18);letter-spacing:.06em}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{padding:0 24px}
+  .page-header{padding:100px 48px 56px}
+  .page-header::before{left:24px}
+  .main{padding:56px 32px}
+  .contacto-grid{grid-template-columns:1fr;gap:2.5rem}
+  .footer{padding:36px}
+}
+@media(max-width:640px){
+  .nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:52px;left:0;right:0;background:rgba(253,250,247,.98);border-bottom:.5px solid var(--borde);padding:20px 24px;gap:16px}
+  .nav-burger{display:flex}
+  .page-header{padding:88px 24px 185px;padding-left:52px}
+  .page-header .dark-icon{width:90px;height:90px;right:auto;left:0;right:0;margin:auto;top:auto;bottom:56px;transform:none}
+  .main{padding:48px 20px}
+  .tipo-grid{grid-template-columns:1fr 1fr}
+  .footer{padding:32px 24px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.svg" alt="Oreka Consultores" class="nav-logo-img">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html" class="active nav-cta">Hablemos →</a></li>
+  </ul>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <img src="POLIEDRO_DE_LA_ESTABILIDAD.png" class="dark-icon" alt="">
+  <div class="page-header-label">Contacto</div>
+  <h1 class="page-header-title">
+    Si sientes que hay algo<br>que aún no has podido<br><em>nombrar — hablemos.</em>
+  </h1>
+  <div class="page-header-sep">
+    <div class="page-header-sep-line"></div>
+    <div class="page-header-sep-dot"></div>
+    <div class="page-header-sep-line"></div>
+  </div>
+  <p class="page-header-sub">No necesitas tener claro qué quieres trabajar. La mayoría de las conversaciones más importantes empiezan exactamente así — con algo que no tiene nombre todavía.</p>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+  <div class="contacto-grid fade-up">
+
+    <!-- FORMULARIO -->
+    <div>
+      <div class="slabel">Cuéntanos sobre tu iniciativa</div>
+
+      <form name="contacto" netlify>
+
+        <div class="form-field">
+          <label class="form-label">Tu nombre</label>
+          <input class="form-input" type="text" name="nombre" placeholder="¿Cómo te llamamos?">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">Nombre de tu iniciativa o marca</label>
+          <input class="form-input" type="text" name="iniciativa" placeholder="¿Cómo se llama tu proyecto, empresa o marca?">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">Tu correo</label>
+          <input class="form-input" type="email" name="correo" placeholder="Para responderte directamente">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">¿Qué tipo de iniciativa es?</label>
+          <div class="tipo-grid" id="tipoGrid">
+            <div class="tipo-option" onclick="selectTipo(this)">Empresa</div>
+            <div class="tipo-option" onclick="selectTipo(this)">Emprendimiento</div>
+            <div class="tipo-option" onclick="selectTipo(this)">Proyecto personal</div>
+            <div class="tipo-option" onclick="selectTipo(this)">Organización</div>
+            <div class="tipo-option" onclick="selectTipo(this)">Artista</div>
+            <div class="tipo-option" onclick="selectTipo(this)">Deportista</div>
+          </div>
+          <input type="hidden" name="tipo" id="tipoValue">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">¿Desde dónde llegas?</label>
+          <textarea class="form-input form-textarea" name="mensaje" placeholder="No tiene que estar ordenado. Cuéntanos qué está pasando — o qué sientes que falta."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Enviar →</button>
+        <p class="form-note">Respondemos en menos de 48 horas. Alguien real lee esto.</p>
+
+      </form>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-quote">
+        <div class="sidebar-quote-text">"La primera conversación no es una sesión de venta. Es una conversación — para ver si tiene sentido trabajar juntos."</div>
+        <div class="sidebar-quote-source">Juan Bernardo Puentes · Fundador, Oreka</div>
+      </div>
+
+      <div class="slabel" style="margin-top:8px;">También puedes llegar por aquí</div>
+      <div class="canales">
+        <div class="canal">
+          <div class="canal-info">
+            <div class="canal-name">Correo directo</div>
+            <div class="canal-sub">juanp@orekaconsultores.com</div>
+          </div>
+          <a href="mailto:juanp@orekaconsultores.com" class="canal-link">Escribir →</a>
+        </div>
+        <div class="canal">
+          <div class="canal-info">
+            <div class="canal-name">LinkedIn</div>
+            <div class="canal-sub">Juan Bernardo Puentes</div>
+          </div>
+          <a href="https://www.linkedin.com/in/juan-bernardo-puentes-jim%C3%A9nez-9a87a77b/" target="_blank" class="canal-link">Ir →</a>
+        </div>
+        <div class="canal">
+          <div class="canal-info">
+            <div class="canal-name">WhatsApp</div>
+            <div class="canal-sub">+57 315 213 0878</div>
+          </div>
+          <a href="https://wa.me/573152130878" target="_blank" class="canal-link">Abrir →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="logo-blanco.svg" alt="Oreka Consultores" class="footer-logo-img">
+    <span>orekaconsultores.com</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="footer-meta">© 2025 Oreka Consultores</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  const pct = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+
+function selectTipo(el){
+  document.querySelectorAll('.tipo-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('tipoValue').value = el.textContent;
+}
+
+const obs = new IntersectionObserver(e => {
+  e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
+}, {threshold:0.08});
+document.querySelectorAll('.fade-up, .sep').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

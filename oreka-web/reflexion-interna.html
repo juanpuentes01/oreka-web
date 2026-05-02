@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La empresa que vendía amor — Reflexiones · Oreka Consultores</title>
+<meta name="description" content="Entré a una organización y sentí que algo estaba profundamente mal — sin poder explicar qué. El problema no estaba en la estrategia. Estaba en la fuente.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --azul:#1F4E79;
+  --azul-desc:#3B82C4;
+  --niebla:#EBF3FB;
+  --tierra:#A0714F;
+  --gris:#6B7280;
+  --negro:#1A1A1A;
+  --blanco:#FFFFFF;
+  --fondo:#FDFAF7;
+  --borde:rgba(0,0,0,0.08);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost',Arial,sans-serif;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--fondo);color:var(--negro);line-height:1.7;font-weight:300}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,250,247,0.96);backdrop-filter:blur(8px);border-bottom:.5px solid var(--borde);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-logo{display:flex;align-items:center}
+.nav-logo-img{height:46px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);transition:color .2s}
+.nav-links a:hover{color:var(--azul)}
+.nav-links a.active{color:var(--azul)}
+.nav-cta{color:var(--azul) !important;border:.5px solid var(--azul);padding:5px 14px;border-radius:3px;transition:all .2s !important}
+.nav-cta:hover{background:var(--azul);color:var(--blanco) !important}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:20px;height:1px;background:var(--negro)}
+.progress-bar{position:fixed;top:52px;left:0;z-index:99;height:2px;background:var(--azul-desc);width:0%;transition:width .1s linear;opacity:.8}
+
+/* HERO ENTRADA */
+.entrada-hero{
+  background:#0d1e2e;
+  padding:120px 96px 72px;
+  position:relative;overflow:hidden;
+}
+.entrada-hero::before{content:'';position:absolute;left:48px;top:72px;bottom:40px;width:1.5px;background:rgba(255,255,255,.08)}
+.entrada-back{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+  margin-bottom:32px;
+  transition:color .2s;
+}
+.entrada-back:hover{color:rgba(255,255,255,.7)}
+.entrada-back::before{content:'←';font-size:12px}
+.entrada-meta{display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.entrada-cat{
+  padding:4px 10px;border-radius:4px;
+  font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  background:rgba(123,107,158,.25);color:#b8aed4;
+  border:.5px solid rgba(123,107,158,.3);
+}
+.entrada-cat.estrategia{background:rgba(59,130,196,.2);color:#7eb8f0;border-color:rgba(59,130,196,.3)}
+.entrada-cat.cultura{background:rgba(160,113,79,.2);color:#c8976a;border-color:rgba(160,113,79,.3)}
+.entrada-cat.liderazgo{background:rgba(78,123,98,.2);color:#7cb89a;border-color:rgba(78,123,98,.3)}
+.entrada-cat.proposito{background:rgba(123,107,158,.2);color:#b8aed4;border-color:rgba(123,107,158,.3)}
+.entrada-fecha{font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.06em}
+.entrada-hero-title{
+  font-family:var(--serif);
+  font-size:clamp(32px,4vw,52px);
+  font-weight:400;color:var(--blanco);
+  line-height:1.1;max-width:760px;
+  margin-bottom:20px;
+}
+.entrada-hero-title em{font-style:italic;color:rgba(255,255,255,.6)}
+.entrada-hero-sep{display:flex;align-items:center;width:80px;margin-bottom:20px}
+.entrada-hero-sep-line{flex:1;height:.5px;background:rgba(255,255,255,.15)}
+.entrada-hero-sep-dot{width:4px;height:4px;border-radius:50%;background:var(--tierra);margin:0 8px;flex-shrink:0}
+.entrada-hero-intro{
+  font-size:16px;font-weight:300;
+  color:rgba(255,255,255,.45);
+  max-width:620px;line-height:1.85;
+}
+
+/* LAYOUT ARTÍCULO */
+.articulo-wrap{
+  display:grid;
+  grid-template-columns:1fr 280px;
+  gap:4rem;
+  max-width:1100px;margin:0 auto;
+  padding:72px 48px;
+  align-items:start;
+}
+
+/* CONTENIDO */
+.articulo-content{}
+
+/* TIPOGRAFÍA EDITORIAL */
+.articulo-content p{
+  font-size:17px;font-weight:300;
+  color:#3a3a3a;line-height:1.9;
+  max-width:640px;
+  margin-bottom:28px;
+}
+.articulo-content p strong{font-weight:500;color:var(--negro)}
+
+.articulo-content h2{
+  font-family:var(--serif);
+  font-size:26px;font-weight:400;
+  color:var(--negro);line-height:1.25;
+  margin:48px 0 20px;
+}
+.articulo-content h2 em{font-style:italic}
+
+.articulo-content h3{
+  font-size:13px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--azul-desc);
+  margin:36px 0 16px;
+}
+
+/* PULLQUOTE DENTRO DEL ARTÍCULO */
+.articulo-pullquote{
+  border-left:3px solid var(--azul);
+  padding:8px 0 8px 24px;
+  margin:36px 0;
+}
+.articulo-pullquote p{
+  font-family:var(--serif);
+  font-size:22px !important;font-style:italic;
+  color:var(--azul) !important;
+  line-height:1.5 !important;margin-bottom:0 !important;
+}
+
+/* SEPARADOR INTERNO */
+.articulo-sep{
+  display:flex;align-items:center;
+  margin:40px 0;width:120px;
+}
+.articulo-sep-line{flex:1;height:.5px;background:var(--borde)}
+.articulo-sep-dot{width:4px;height:4px;border-radius:50%;background:var(--azul);margin:0 8px;flex-shrink:0}
+
+/* FIRMA */
+.articulo-firma{
+  display:flex;align-items:center;gap:16px;
+  padding:24px 0;
+  border-top:.5px solid var(--borde);
+  margin-top:48px;
+}
+.articulo-firma-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--niebla);
+  border:.5px solid rgba(31,78,121,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:16px;color:var(--azul);
+  flex-shrink:0;
+}
+.articulo-firma-nombre{font-size:13px;font-weight:500;color:var(--negro);margin-bottom:2px}
+.articulo-firma-rol{font-size:11px;font-weight:300;color:var(--gris);letter-spacing:.04em}
+
+/* SIDEBAR */
+.articulo-sidebar{position:sticky;top:80px}
+
+.sidebar-toc{
+  background:var(--blanco);
+  border:.5px solid var(--borde);
+  border-radius:8px;
+  padding:20px 22px;
+  margin-bottom:20px;
+}
+.sidebar-toc-label{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:12px;padding-bottom:8px;border-bottom:.5px solid var(--borde)}
+.sidebar-toc-item{
+  display:block;
+  font-size:12px;font-weight:300;color:var(--gris);
+  padding:6px 0;
+  border-bottom:.5px solid var(--borde);
+  transition:color .2s;
+  line-height:1.4;
+}
+.sidebar-toc-item:last-child{border-bottom:none}
+.sidebar-toc-item:hover{color:var(--azul)}
+.sidebar-toc-item.active{color:var(--azul);font-weight:500}
+
+.sidebar-meta{
+  background:var(--blanco);
+  border:.5px solid var(--borde);
+  border-radius:8px;
+  padding:20px 22px;
+  margin-bottom:20px;
+}
+.sidebar-meta-item{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:8px 0;border-bottom:.5px solid var(--borde);
+  font-size:12px;
+}
+.sidebar-meta-item:last-child{border-bottom:none}
+.sidebar-meta-label{color:var(--gris);font-weight:300}
+.sidebar-meta-value{color:var(--negro);font-weight:500;text-align:right}
+
+.sidebar-cta{
+  background:var(--azul);
+  border-radius:8px;padding:20px 22px;
+}
+.sidebar-cta-text{font-family:var(--serif);font-size:15px;font-style:italic;color:rgba(255,255,255,.8);line-height:1.5;margin-bottom:14px}
+.sidebar-cta-btn{
+  display:block;text-align:center;
+  padding:9px 16px;border-radius:4px;
+  font-family:var(--sans);font-size:10px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(255,255,255,.12);color:var(--blanco);
+  border:.5px solid rgba(255,255,255,.2);
+  transition:all .2s;
+}
+.sidebar-cta-btn:hover{background:rgba(255,255,255,.2)}
+
+/* NAVEGACIÓN ENTRE ENTRADAS */
+.entrada-nav{
+  background:var(--negro);
+  padding:48px 96px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;
+}
+.entrada-nav-item{
+  padding:32px 40px;
+  background:var(--negro);
+  cursor:pointer;
+  transition:background .2s;
+  border:.5px solid rgba(255,255,255,.06);
+  border-radius:6px;
+}
+.entrada-nav-item:hover{background:#252525}
+.entrada-nav-dir{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:10px}
+.entrada-nav-title{font-family:var(--serif);font-size:17px;font-weight:400;color:rgba(255,255,255,.7);line-height:1.35}
+.entrada-nav-title em{font-style:italic}
+.entrada-nav-item:hover .entrada-nav-title{color:var(--blanco)}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.footer{background:var(--negro);padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-logo{display:flex;flex-direction:column;gap:6px}
+.footer-logo-img{height:56px;width:auto;opacity:.9}
+.footer-logo span{font-family:var(--sans);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.75)}
+.footer-meta{font-size:9px;color:rgba(255,255,255,.18);letter-spacing:.06em}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{padding:0 24px}
+  .entrada-hero{padding:100px 48px 56px}
+  .entrada-hero::before{left:24px}
+  .articulo-wrap{grid-template-columns:1fr;gap:2.5rem;padding:48px 32px}
+  .articulo-sidebar{position:static}
+  .entrada-nav{padding:32px 48px;grid-template-columns:1fr}
+  .footer{padding:36px}
+}
+@media(max-width:640px){
+  .nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:52px;left:0;right:0;background:rgba(253,250,247,.98);border-bottom:.5px solid var(--borde);padding:20px 24px;gap:16px}
+  .nav-burger{display:flex}
+  .entrada-hero{padding:88px 24px 48px;padding-left:52px}
+  .articulo-wrap{padding:40px 20px}
+  .articulo-content p{font-size:15px}
+  .entrada-nav{padding:24px 20px}
+  .entrada-nav-item{padding:20px 24px}
+  .footer{padding:32px 24px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.svg" alt="Oreka Consultores" class="nav-logo-img">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html">El libro</a></li>
+    <li><a href="reflexiones.html" class="active">Reflexiones</a></li>
+    <li><a href="contacto.html" class="nav-cta">Hablemos →</a></li>
+  </ul>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- HERO ENTRADA -->
+<header class="entrada-hero">
+  <a href="reflexiones.html" class="entrada-back">Volver a reflexiones</a>
+  <div class="entrada-meta">
+    <span class="entrada-cat proposito">Propósito</span>
+    <span class="entrada-fecha">Enero 2025</span>
+  </div>
+  <h1 class="entrada-hero-title">
+    La empresa que vendía amor<br>
+    <em>y tomaba decisiones desde el miedo.</em>
+  </h1>
+  <div class="entrada-hero-sep">
+    <div class="entrada-hero-sep-line"></div>
+    <div class="entrada-hero-sep-dot"></div>
+    <div class="entrada-hero-sep-line"></div>
+  </div>
+  <p class="entrada-hero-intro">Entré a una organización y sentí que algo estaba profundamente mal — sin poder explicar qué. El problema no estaba en la estrategia. Estaba en la fuente.</p>
+</header>
+
+<!-- ARTÍCULO -->
+<div class="articulo-wrap">
+
+  <article class="articulo-content fade-up">
+
+    <p>Entré a una organización y sentí que algo estaba profundamente mal — sin poder explicar qué. Era una empresa pequeña. Vendía cosas que en teoría deberían irradiar vida. El equipo era capaz. El propósito era genuino. Los números no eran el problema. Y sin embargo, algo no cerraba.</p>
+
+    <p>Pasé las primeras horas escuchando. No pregunté por la estrategia ni por el mercado. Pregunté por cómo se tomaban las decisiones cuando había presión. Por qué se habían ido las últimas tres personas del equipo. Por qué el fundador llevaba dos años sin dormir bien.</p>
+
+    <div class="articulo-pullquote">
+      <p>El problema no estaba en la estrategia ni en los procesos. Estaba en la fuente desde donde operaba todo.</p>
+    </div>
+
+    <p>Lo que encontré no tenía nombre todavía. Pero tenía una forma muy clara: una organización que hacia afuera vendía amor, conexión y propósito — y que hacia adentro tomaba cada decisión desde el miedo. Miedo a perder clientes. Miedo a decepcionar. Miedo a no ser suficiente.</p>
+
+    <h2>Lo que el mercado no puede ver</h2>
+
+    <p>El problema con el miedo como motor de decisiones no es que sea ineficiente — aunque lo es. El problema es que genera una <strong>incoherencia estructural</strong> que lo corrompe todo desde adentro. La propuesta de valor decía una cosa. La cultura vivía otra. Y esa brecha, invisible desde afuera, era perfectamente perceptible para el equipo, para los clientes más cercanos y para el propio fundador.</p>
+
+    <p>Nadie lo había nombrado así. Pero todos lo sentían. Y cuando algo así se instala sin nombre, sin diagnóstico, sin reconocimiento — se convierte en la nueva normalidad. El desgaste se vuelve parte del paisaje. La tensión se normaliza. Y el crecimiento, si llega, amplifica la incoherencia en lugar de resolverla.</p>
+
+    <div class="articulo-sep">
+      <div class="articulo-sep-line"></div>
+      <div class="articulo-sep-dot"></div>
+      <div class="articulo-sep-line"></div>
+    </div>
+
+    <h3>La pregunta que nadie se había hecho</h3>
+
+    <p>Después de algunas horas, le hice al fundador una pregunta simple: <em>¿Desde dónde decides cuando algo importa de verdad?</em></p>
+
+    <p>Hubo un silencio largo. No el silencio de quien no sabe — sino el de quien sabe pero no ha podido decirlo en voz alta hasta ahora.</p>
+
+    <p>"Desde el miedo a que se vaya", dijo finalmente. "Siempre desde el miedo a que algo se rompa."</p>
+
+    <p>Eso fue el diagnóstico. No la solución — el diagnóstico. Porque antes de construir cualquier estrategia, cualquier plan de crecimiento, cualquier ajuste de marca, necesitaba entender <strong>desde dónde operaba realmente esta iniciativa</strong>. Y la respuesta no estaba en el brief ni en los números. Estaba ahí, en esa frase.</p>
+
+    <div class="articulo-pullquote">
+      <p>Antes de cualquier estrategia: ¿desde dónde decides cuando algo importa de verdad?</p>
+    </div>
+
+    <h2>Lo que cambió — y lo que no</h2>
+
+    <p>El trabajo que siguió no fue de marca ni de posicionamiento. Fue de núcleo. De entender qué sostenía genuinamente a esa iniciativa — más allá del miedo, más allá de la urgencia. Y de construir desde ahí hacia afuera, en lugar de desde el mercado hacia adentro.</p>
+
+    <p>No todo cambió de golpe. El miedo no desaparece por decreto. Pero algo se nombró. Y cuando algo se nombra con precisión — cuando deja de ser una sensación difusa y se convierte en un diagnóstico claro — el trabajo real puede empezar.</p>
+
+    <p>Esa empresa todavía existe. Opera diferente. No porque cambió su propuesta de valor ni su identidad visual. Sino porque el fundador aprendió a reconocer desde dónde estaba decidiendo — y a elegir conscientemente decidir desde otro lugar.</p>
+
+    <!-- FIRMA -->
+    <div class="articulo-firma">
+      <div class="articulo-firma-avatar">JB</div>
+      <div>
+        <div class="articulo-firma-nombre">Juan Bernardo Puentes</div>
+        <div class="articulo-firma-rol">Fundador · Oreka Consultores · Enero 2025</div>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="articulo-sidebar fade-up">
+
+    <div class="sidebar-toc">
+      <div class="sidebar-toc-label">En esta entrada</div>
+      <a href="#" class="sidebar-toc-item active">La organización que no cerraba</a>
+      <a href="#" class="sidebar-toc-item">Lo que el mercado no puede ver</a>
+      <a href="#" class="sidebar-toc-item">La pregunta que nadie se había hecho</a>
+      <a href="#" class="sidebar-toc-item">Lo que cambió — y lo que no</a>
+    </div>
+
+    <div class="sidebar-meta">
+      <div class="sidebar-meta-item">
+        <span class="sidebar-meta-label">Categoría</span>
+        <span class="sidebar-meta-value">Propósito</span>
+      </div>
+      <div class="sidebar-meta-item">
+        <span class="sidebar-meta-label">Fecha</span>
+        <span class="sidebar-meta-value">Enero 2025</span>
+      </div>
+      <div class="sidebar-meta-item">
+        <span class="sidebar-meta-label">Lectura</span>
+        <span class="sidebar-meta-value">5 min</span>
+      </div>
+    </div>
+
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-text">"Si algo de esto resuena — hay una conversación que vale la pena tener."</div>
+      <a href="contacto.html" class="sidebar-cta-btn">Hablemos →</a>
+    </div>
+
+  </aside>
+
+</div>
+
+<!-- NAVEGACIÓN ENTRE ENTRADAS -->
+<nav class="entrada-nav">
+  <a href="#" class="entrada-nav-item">
+    <div class="entrada-nav-dir">← Anterior</div>
+    <div class="entrada-nav-title">La marca no se construye.<br><em>Se merece.</em></div>
+  </a>
+  <a href="#" class="entrada-nav-item">
+    <div class="entrada-nav-dir">Siguiente →</div>
+    <div class="entrada-nav-title">El núcleo siempre estaba ahí.<br><em>Lo que cambia es la capacidad de verlo.</em></div>
+  </a>
+</nav>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="logo-blanco.svg" alt="Oreka Consultores" class="footer-logo-img">
+    <span>orekaconsultores.com</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="metodologia.html">Metodología</a></li>
+    <li><a href="libro.html">El libro</a></li>
+    <li><a href="reflexiones.html">Reflexiones</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="footer-meta">© 2025 Oreka Consultores</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  const pct = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+const obs = new IntersectionObserver(e => {
+  e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
+}, {threshold:0.06});
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
