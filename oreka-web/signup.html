@@ -7,15 +7,13 @@
 </head>
 <body style="display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#1A1A1A;font-family:sans-serif;">
   <div style="text-align:center;color:white;">
-    <p style="margin-bottom:20px;opacity:.6;font-size:14px;">Haz click para crear tu cuenta de administrador</p>
-    <button onclick="netlifyIdentity.open('signup')" style="background:#1F4E79;color:white;border:none;padding:14px 28px;border-radius:4px;font-size:14px;cursor:pointer;">
-      Crear cuenta →
+    <p style="margin-bottom:20px;opacity:.6;font-size:14px;">Haz click para crear tu cuenta</p>
+    <button onclick="netlifyIdentity.open('signup')" style="background:#1F4E79;color:white;border:none;padding:14px 28px;border-radius:4px;font-size:14px;cursor:pointer;margin-right:10px;">
+      Crear cuenta
+    </button>
+    <button onclick="netlifyIdentity.open('login')" style="background:#6B7280;color:white;border:none;padding:14px 28px;border-radius:4px;font-size:14px;cursor:pointer;">
+      Iniciar sesión
     </button>
   </div>
-  <script>
-    netlifyIdentity.on("login", () => {
-      document.location.href = "/admin/";
-    });
-  </script>
 </body>
 </html>
