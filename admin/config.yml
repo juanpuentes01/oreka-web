@@ -8,6 +8,8 @@ public_folder: "/imagenes"
 locale: "es"
 
 collections:
+
+  # ── REFLEXIONES (blog) ─────────────────────────────
   - name: "reflexiones"
     label: "Reflexiones"
     folder: "_reflexiones"
@@ -28,3 +30,66 @@ collections:
       - { label: "Imagen", name: "imagen", widget: "image", required: false }
       - { label: "Contenido", name: "body", widget: "markdown" }
       - { label: "Publicado", name: "publicado", widget: "boolean", default: true }
+
+  # ── SLIDER ────────────────────────────────────────
+  - name: "slider"
+    label: "Slider principal"
+    files:
+      - label: "Slides del hero"
+        name: "slides"
+        file: "_data/slider.json"
+        fields:
+          - label: "Slides"
+            name: "slides"
+            widget: "list"
+            fields:
+              - { label: "Tag (texto pequeño arriba)", name: "tag", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Subtítulo (en cursiva)", name: "subtitulo", widget: "string", required: false }
+              - { label: "Descripción", name: "descripcion", widget: "text" }
+              - label: "Tipo de fondo"
+                name: "tipo"
+                widget: "select"
+                options:
+                  - { label: "Azul Oreka", value: "slide--azul" }
+                  - { label: "Oscuro", value: "slide--oscuro" }
+                  - { label: "Tierra", value: "slide--tierra" }
+                  - { label: "Con foto", value: "slide--foto" }
+              - { label: "Imagen de fondo (solo para tipo foto)", name: "imagen", widget: "image", required: false }
+              - { label: "Texto botón primario", name: "cta_texto", widget: "string", required: false }
+              - { label: "URL botón primario", name: "cta_url", widget: "string", required: false }
+              - { label: "Texto botón secundario", name: "cta2_texto", widget: "string", required: false }
+              - { label: "URL botón secundario", name: "cta2_url", widget: "string", required: false }
+              - { label: "Activo", name: "activo", widget: "boolean", default: true }
+
+  # ── TEXTOS DEL SITIO ──────────────────────────────
+  - name: "textos"
+    label: "Textos del sitio"
+    files:
+
+      - label: "Página de inicio"
+        name: "inicio"
+        file: "_data/inicio.json"
+        fields:
+          - { label: "Tagline principal", name: "tagline", widget: "string" }
+          - { label: "Descripción hero", name: "descripcion", widget: "text" }
+
+      - label: "Promesa (bloque azul)"
+        name: "promesa"
+        file: "_data/promesa.json"
+        fields:
+          - { label: "Cita", name: "cita", widget: "string" }
+          - { label: "Texto 1", name: "texto1", widget: "text" }
+          - { label: "Texto 2", name: "texto2", widget: "text" }
+          - { label: "Texto botón", name: "cta", widget: "string" }
+
+  # ── IMÁGENES ──────────────────────────────────────
+  - name: "imagenes"
+    label: "Imágenes"
+    files:
+      - label: "Foto principal (hero)"
+        name: "foto_home"
+        file: "_data/imagenes.json"
+        fields:
+          - { label: "Foto hero / slide 4", name: "foto_home", widget: "image" }
+          - { label: "Foto Juan Bernardo", name: "foto_juan", widget: "image" }

@@ -1,1 +1,9 @@
-/* /404.html 404
+# Redirigir rutas limpias a HTML
+/quienes-somos    /quienes-somos.html    200
+/metodologia      /metodologia.html      200
+/libro            /libro.html            200
+/reflexiones      /reflexiones.html      200
+/contacto         /contacto.html         200
+
+# 404 personalizado
+/*    /404.html    404

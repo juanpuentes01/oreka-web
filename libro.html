@@ -48,7 +48,7 @@ img{max-width:100%;display:block}
   padding-top:52px;
 }
 .libro-hero-left{
-  background:var(--azul);
+  background:#A0714F;
   padding:80px 72px 80px 96px;
   display:flex;flex-direction:column;justify-content:flex-end;
   position:relative;overflow:hidden;
@@ -65,7 +65,7 @@ img{max-width:100%;display:block}
 
 /* PORTADA PLACEHOLDER */
 .libro-hero-right{
-  background:var(--negro);
+  background:#6B7280;
   display:flex;align-items:center;justify-content:center;
   padding:48px;
   position:relative;overflow:hidden;
@@ -75,12 +75,9 @@ img{max-width:100%;display:block}
   width:100%;
   max-width:280px;
   aspect-ratio:2/3;
-  background:rgba(255,255,255,.06);
-  border:.5px solid rgba(255,255,255,.12);
+  background:transparent;
+  border:none;
   border-radius:8px;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:2rem;text-align:center;
   position:relative;
 }
 .libro-portada img.portada-real{
@@ -204,6 +201,7 @@ p strong{color:var(--negro);font-weight:500}
   .libro-cta{padding:28px 24px}
   .footer{padding:32px 24px;flex-direction:column;align-items:flex-start}
 }
+@keyframes iconFloat{0%,100%{transform:translateY(0) rotate(0deg)}33%{transform:translateY(-8px) rotate(1.5deg)}66%{transform:translateY(-4px) rotate(-1deg)}}
 </style>
 </head>
 <body>
@@ -248,18 +246,8 @@ p strong{color:var(--negro);font-weight:500}
   </div>
 
   <div class="libro-hero-right">
-    <!-- Portada: cuando tengas la imagen descomenta la siguiente línea -->
-    <!-- <img src="portada-libro.jpg" class="portada-real" alt="El Núcleo Estratégico"> -->
     <div class="libro-portada">
-      <svg class="libro-portada-atomo" viewBox="0 0 40 40" fill="none">
-        <circle cx="20" cy="20" r="3" fill="white" opacity=".6"/>
-        <ellipse cx="20" cy="20" rx="17" ry="7" stroke="white" stroke-width=".8" fill="none" opacity=".4"/>
-        <ellipse cx="20" cy="20" rx="17" ry="7" stroke="white" stroke-width=".8" fill="none" opacity=".4" transform="rotate(60 20 20)"/>
-        <ellipse cx="20" cy="20" rx="17" ry="7" stroke="white" stroke-width=".8" fill="none" opacity=".4" transform="rotate(120 20 20)"/>
-      </svg>
-      <div class="libro-portada-title">El Núcleo<br>Estratégico</div>
-      <div class="libro-portada-sep"></div>
-      <div class="libro-portada-author">Juan Bernardo Puentes</div>
+      <img src="imagenes/Libro.png" class="portada-real" alt="El Núcleo Estratégico" style="animation:iconFloat 6s ease-in-out infinite;">
     </div>
   </div>
 

@@ -78,11 +78,11 @@ img{max-width:100%;display:block}
 /* Fondos por tipo de slide */
 .slide--azul{background:var(--azul)}
 .slide--oscuro{background:#0f1c2e}
-.slide--tierra{background:linear-gradient(135deg,#2a1f14 0%,#1a3040 100%)}
+.slide--tierra{background:linear-gradient(rgba(42,31,20,.80),rgba(26,48,64,.88)),url('imagenes/reflexion1.jpg') center/cover no-repeat}
 .slide--foto{
   background:linear-gradient(rgba(15,28,46,.75),rgba(15,28,46,.88)),
-  url('') center/cover no-repeat;
-  /* Cambia url('') por url('tu-foto.jpg') cuando tengas la imagen */
+  url('imagenes/foto-home.JPG') center/cover no-repeat;
+  /* Cambia url('imagenes/foto-home.JPG') por url('tu-foto.jpg') cuando tengas la imagen */
 }
 .slide--video{background:#0a1520}
 
@@ -161,7 +161,7 @@ img{max-width:100%;display:block}
 
 /* Imagen de libro / mini card dentro del slide */
 .slide-card{
-  position:absolute;right:96px;bottom:96px;
+  position:absolute;right:96px;top:50%;transform:translateY(-50%);
   width:160px;
   background:rgba(255,255,255,.06);
   border:.5px solid rgba(255,255,255,.12);
@@ -171,7 +171,7 @@ img{max-width:100%;display:block}
   opacity:0;transform:translateX(20px);
   transition:opacity .7s ease .5s,transform .7s ease .5s;
 }
-.slide.active .slide-card{opacity:1;transform:translateX(0)}
+.slide.active .slide-card{opacity:1;transform:translateY(-50%) translateX(0)}
 .slide-card-title{
   font-family:var(--serif);font-size:14px;
   color:var(--blanco);line-height:1.3;margin-bottom:8px;
@@ -264,6 +264,7 @@ img{max-width:100%;display:block}
   .slide-title{font-size:32px}
   .slider-arrow{display:none}
   .slider-counter{display:none}
+  .slide-card{display:none}
 }
 
 /* LAYOUT */
@@ -717,7 +718,7 @@ p{position:relative;z-index:1}
     <svg class="slide-vesica" width="340" height="520" viewBox="0 0 200 300">
       <path d="M100 5C140 50 165 110 165 150C165 190 140 250 100 295C60 250 35 190 35 150C35 110 60 50 100 5Z" fill="white"/>
     </svg>
-    <div class="slide-tag">Oreka Consultores · orekaconsultores.com</div>
+    <div class="slide-tag">Le devolvemos la singularidad a tu iniciativa</div>
     <h1 class="slide-title">
       Revelamos rutas de crecimiento.<br>
       <em>Las que nacen desde adentro.</em>
@@ -746,10 +747,9 @@ p{position:relative;z-index:1}
     <div class="slide-actions">
       <a href="libro.html" class="btn btn-primary">Conocer el libro →</a>
     </div>
-    <!-- Mini portada del libro — placeholder -->
-    <div class="slide-card">
-      <div class="slide-card-title">El Núcleo<br>Estratégico</div>
-      <div class="slide-card-sub">Juan Bernardo Puentes</div>
+    <!-- Portada libro en slide -->
+    <div class="slide-card" style="padding:0;overflow:hidden;background:transparent;border:none;display:flex;align-items:center;justify-content:center;">
+      <img src="imagenes/Libro.png" alt="El Núcleo Estratégico" style="width:100%;height:auto;object-fit:contain;border-radius:8px;opacity:.9;animation:iconFloat 6s ease-in-out infinite;">
     </div>
   </div>
 
@@ -771,7 +771,7 @@ p{position:relative;z-index:1}
 
   <!-- ── SLIDE 4 — Foto / video (placeholder) ── -->
   <div class="slide slide--foto">
-    <!-- Para activar: cambia url('') por url('tu-foto.jpg') en .slide--foto en el CSS -->
+    <!-- Para activar: cambia url('imagenes/foto-home.JPG') por url('tu-foto.jpg') en .slide--foto en el CSS -->
     <div class="slide-tag">Oreka · En contexto</div>
     <h2 class="slide-title">
       Antes de crecer, vender o innovar<br>
@@ -836,8 +836,8 @@ p{position:relative;z-index:1}
       <div class="quien-foto">
         <div class="quien-foto-inner">
           <!-- FOTO: cuando tengas la imagen descomenta esta línea y borra el placeholder -->
-          <!-- <img src="foto-juan-bernardo.jpg" class="foto-real" alt="Juan Bernardo Puentes"> -->
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;">
+          <img src="imagenes/foto-juanbernardo.jpg" class="foto-real" alt="Juan Bernardo Puentes">
+          <div style="display:none">
             <div class="quien-foto-label">Fotografía</div>
             <p class="quien-foto-sub">Aquí irá una imagen real — Juan Bernardo en conversación o el ambiente de trabajo de Oreka.</p>
           </div>
@@ -1140,14 +1140,14 @@ const slider = {
 
 slider.init();
 const ICONOS = [
-  'LA_VESICA_PRIMORDIAL.png',
-  'LOS_ESTRATOS_ISOMETRICOS.png',
-  'POLIEDRO_DE_LA_ESTABILIDAD.png',
-  'SISTEMA_DE_ORBITAS.png',
-  'EL_PUNTO_DE_SINGULARIDAD.png',
-  'LA_FISION_DEL_PROPOSITO.png',
-  'LA_RED_DE_NODOS.png',
-  'LA_TENSION_GRAVITACIONAL.png'
+  'imagenes/LA_VESICA_PRIMORDIAL.png',
+  'imagenes/LOS_ESTRATOS_ISOMETRICOS.png',
+  'imagenes/POLIEDRO_DE_LA_ESTABILIDAD.png',
+  'imagenes/SISTEMA_DE_ORBITAS.png',
+  'imagenes/EL_PUNTO_DE_SINGULARIDAD.png',
+  'imagenes/LA_FISION_DEL_PROPOSITO.png',
+  'imagenes/LA_RED_DE_NODOS.png',
+  'imagenes/LA_TENSION_GRAVITACIONAL.png'
 ];
 
 function shuffle(arr) {

@@ -218,7 +218,7 @@ p strong{color:var(--negro);font-weight:500}
 
 <!-- PAGE HEADER -->
 <header class="page-header">
-  <img src="LA_VESICA_PRIMORDIAL.png" class="dark-icon" alt="">
+  <img src="imagenes/LA_VESICA_PRIMORDIAL.png" class="dark-icon" alt="">
   <div class="page-header-label">La Metodología Oreka</div>
   <h1 class="page-header-title">
     Creada para leer lo que<br><em>ningún diagnóstico convencional<br>sabe encontrar.</em>
@@ -397,7 +397,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Iconos flotantes aleatorios
-const ICONOS = ['LA_VESICA_PRIMORDIAL.png','LOS_ESTRATOS_ISOMETRICOS.png','POLIEDRO_DE_LA_ESTABILIDAD.png','SISTEMA_DE_ORBITAS.png','EL_PUNTO_DE_SINGULARIDAD.png','LA_FISION_DEL_PROPOSITO.png','LA_RED_DE_NODOS.png','LA_TENSION_GRAVITACIONAL.png'];
+const ICONOS = ['imagenes/LA_VESICA_PRIMORDIAL.png','imagenes/LOS_ESTRATOS_ISOMETRICOS.png','imagenes/POLIEDRO_DE_LA_ESTABILIDAD.png','imagenes/SISTEMA_DE_ORBITAS.png','imagenes/EL_PUNTO_DE_SINGULARIDAD.png','imagenes/LA_FISION_DEL_PROPOSITO.png','imagenes/LA_RED_DE_NODOS.png','imagenes/LA_TENSION_GRAVITACIONAL.png'];
 function shuffle(a){const r=[...a];for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r}
 const mezclados = shuffle(ICONOS);
 document.querySelectorAll('[data-slot]').forEach(slot => {

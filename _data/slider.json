@@ -1,0 +1,62 @@
+{
+  "slides": [
+    {
+      "tipo": "slide--azul",
+      "tag": "Le devolvemos la singularidad a tu iniciativa",
+      "titulo": "Revelamos rutas de crecimiento.",
+      "subtitulo": "Las que nacen desde adentro.",
+      "descripcion": "Hay proyectos, empresas y personas que no buscan únicamente resultados. Buscan <strong>sentido.</strong> Oreka existe para acompañar a esas iniciativas en el proceso de volver a su centro.",
+      "cta_texto": "Hablemos",
+      "cta_url": "contacto.html",
+      "cta2_texto": "Conocer la metodología",
+      "cta2_url": "metodologia.html",
+      "imagen": "",
+      "video": "",
+      "activo": true
+    },
+    {
+      "tipo": "slide--oscuro",
+      "tag": "El libro · Juan Bernardo Puentes",
+      "titulo": "El Núcleo Estratégico.",
+      "subtitulo": "Un modelo que nace de la física.",
+      "descripcion": "No es un libro de management. Es una manera diferente de mirar las organizaciones — como organismos vivos con la misma estructura interna que un átomo.",
+      "cta_texto": "Conocer el libro",
+      "cta_url": "libro.html",
+      "cta2_texto": "",
+      "cta2_url": "",
+      "imagen": "",
+      "video": "",
+      "badge": "Nuevo",
+      "activo": true
+    },
+    {
+      "tipo": "slide--tierra",
+      "tag": "Reflexiones · Enero 2025",
+      "titulo": "La empresa que vendía amor",
+      "subtitulo": "y tomaba decisiones desde el miedo.",
+      "descripcion": "Entré a una organización y sentí que algo estaba profundamente mal — sin poder explicar qué. El problema no estaba en la estrategia. Estaba en la fuente desde donde operaba todo.",
+      "cta_texto": "Leer",
+      "cta_url": "reflexion-interna.html",
+      "cta2_texto": "Ver todas las reflexiones",
+      "cta2_url": "reflexiones.html",
+      "imagen": "imagenes/reflexion1.jpg",
+      "video": "",
+      "badge": "Última reflexión",
+      "activo": true
+    },
+    {
+      "tipo": "slide--foto",
+      "tag": "Oreka · En contexto",
+      "titulo": "Antes de crecer, vender o innovar",
+      "subtitulo": "existe una pregunta más importante.",
+      "descripcion": "¿Qué eres, qué te mueve — y qué está generando o limitando tu valor real?",
+      "cta_texto": "Hablemos",
+      "cta_url": "contacto.html",
+      "cta2_texto": "",
+      "cta2_url": "",
+      "imagen": "imagenes/foto-home.JPG",
+      "video": "",
+      "activo": true
+    }
+  ]
+}
